@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-export default () => {
+export default ({ service_id }) => {
 const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -28,15 +28,19 @@ const [error, setError] = useState(null);
       )
   }, [])
     console.log(items)
+    console.log(service_id)
   return(
       <div className="">
         <Carousel autoPlay>
-          {items.map(item => (
-              <div>
+          {items.map(item => {
+              if (item.sv_id === service_id){
+                  return(
+                      <div>
             <img alt=""  src={`http://127.0.0.1:8000${item.image}`}/>
             <p className="legend">{item.title}</p>
-          </div>
-        ))}
+          </div>)
+              }
+        })}
         </Carousel>
       </div>
   );
