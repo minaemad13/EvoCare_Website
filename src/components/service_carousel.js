@@ -28,8 +28,7 @@ export default ({service_id}) => {
     // console.log(error)
     return (
         <div className="container-xl">
-            <h1>Carousel</h1>
-           {/*responsive carousel component */}
+            {/*<h1> Responisve Carousel</h1>*/}}
             <Carousel autoPlay width="100%" dynamicHeight={true} showStatus={false}>
                 {/*load only images for specific services*/}
                 {isLoaded && items.map(item => {
