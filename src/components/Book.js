@@ -37,7 +37,7 @@ const Book = () => {
   var Tax = 50
 
 
-  const userid = 1
+  const userid = localStorage.getItem("user_id");
   // const location = useLocation();
   // useEffect(() => {
   //    setPackage_price(location.state.price);
@@ -70,7 +70,6 @@ const Book = () => {
         console.log(err)
       })
     axios.post('http://127.0.0.1:8000/book', {
-
       "Date_Time": selected,
       "User_Id": userid,
       "First_Name": FormData["First_Name"],
