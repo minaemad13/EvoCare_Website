@@ -3,8 +3,7 @@ import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 import profile from "./components/profile";
-import edit from "./components/edit";
-import React, { useState } from "react";
+import edit from "./components/edit"
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
