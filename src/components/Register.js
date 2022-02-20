@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Reg.css";
+import moment from "react-moment";
+import axios from "axios";
 import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import "react-datepicker/dist/react-datepicker.css";
 import FloatingWhatsApp from "react-floating-whatsapp";
@@ -24,6 +26,23 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(FormValues));
+
+    axios
+      .post("http://127.0.0.1:8000/register/", {
+        First_Name: FormValues["firstname"],
+        Last_Name: FormValues["lastname"],
+        email: FormValues["email"],
+        phone: FormValues["phone"],
+        password: FormValues["password"],
+        address: FormValues["address"],
+        birth: FormValues["bdate"],
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     setIsSubmit(true);
   };
   const handleChange = (e) => {

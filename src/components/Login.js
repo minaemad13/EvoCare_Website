@@ -2,20 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Log.css";
+import axios from "axios";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import FloatingWhatsApp from "react-floating-whatsapp";
-
-// function getFormValues() {
-//   const storedValues = localStorage.getItem("form");
-//   if (!storedValues)
-//     return {
-//       email: "",
-//       password: "",
-//     };
-//   return JSON.parse(storedValues);
-// }
 
 console.log(localStorage.getItem("email"));
 export default function Login() {
@@ -42,8 +33,20 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(FormValues));
-    localStorage.setItem("email", FormValues.email);
-    localStorage.setItem("password", FormValues.password);
+    axios
+      .post("http://127.0.0.1:8000/login/", {
+        email: FormValues["email"],
+        password: FormValues["password"],
+      })
+      .then(function (response) {
+        // console.log(response.data.user_id);
+        localStorage.setItem("email", FormValues.email);
+        localStorage.setItem("password", FormValues.password);
+        localStorage.setItem("user_id", response.data.user_id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
     setIsSubmit(true);
   };

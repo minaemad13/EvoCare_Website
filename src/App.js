@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import React from "react";
 import profile from "./components/profile";
 import edit from "./components/edit";
+import React, { useState } from "react";
+// import axios from "axios";
 
 export default function App() {
   return (
