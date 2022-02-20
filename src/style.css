@@ -1,0 +1,198 @@
+.content{
+    background-color:rgb(24, 23, 23); 
+     
+    color: white;
+    font-family: 'Lato', sans-serif;
+    /* height: auto;
+    width: auto; */
+}
+.content1{
+    background-color:rgb(24, 23, 23); 
+     
+    color: white;
+    /* font-family: 'Lato', sans-serif; */
+    /* height: auto;
+    width: auto; */
+}
+
+.anch{
+    /* color: inherit; */
+    text-decoration: none;
+    color: white;
+    /* transition: all 0.3s; */
+}
+.anch:hover, .anch:focus {
+    text-decoration: underline;
+    color: white;
+    /* color: #efb533; */
+}
+  
+
+
+
+:root{
+    --yellow:#efb533
+    ;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,300&display=swap');
+
+.search{
+font-size: 20px;
+color: gray;
+}
+
+
+.font{
+    font-family:'Lato','sans-serif';
+    font-style: italic;
+    color: var(--yellow);
+
+}
+.margin{
+    margin-left: 14%;
+    margin-right: 14%;
+
+}
+
+
+
+
+
+.hr{
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+.cont-m{
+    margin-left: 12%;
+    margin-right:12%;
+}
+
+
+.bg{
+    background-color: rgb(34, 33, 33);
+    color: white;
+
+    
+
+}
+.im {
+
+    vertical-align: middle;
+    width: 100%;
+    filter: grayscale(0.1) brightness(0.8);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s linear;
+  }
+  #show {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    
+  }
+
+
+.card:hover .im {
+    filter: grayscale(0);
+
+  } 
+.card:hover #show {
+    opacity: 1;
+  }
+.card-custom{
+ border:3px solid #efb533
+ ;
+}
+
+.border-primary{
+    border:3px solid #efb533
+}
+
+
+/* .card{
+    border-radius: 20% 
+} */
+
+.card-img-top {
+    height: 19rem;
+    object-fit: cover;
+}
+.card-img-top1 {
+    /* height: 19rem; */
+    object-fit: cover;
+}
+
+
+.img-responsive {
+    height: auto;
+    width: auto;
+    max-height: 52px;
+    max-width: 180px;
+}
+
+
+.testbg{
+    background-color: rgb(41, 41, 41);
+    padding-top:4%;
+    padding-bottom:4%;
+
+}
+.arrow{
+color: white;
+font-size: 23px;
+}
+
+
+
+
+.icons{
+    font-size: 40px;
+    color:var(--yellow);
+}
+
+.iconsf{
+    font-size: 14px;
+}
+.icon2{
+    font-size: 20px;
+    color: white;
+
+}
+
+.map{
+    width: 100%;
+    background-color: black;
+    color: aliceblue;
+    border: none;
+
+}
+
+
+/* .navbar{
+    z-index:9; 
+   }
+#carouselExampleDark{
+     position:absolute;
+     width:100%;
+     top:0;
+   } */
+
+
+
+#container{
+       width: 90%;
+   
+       margin: 16px auto;
+       /* More rules... */
+}
+
+footer li:hover{
+    transform: scale(1.5);}
