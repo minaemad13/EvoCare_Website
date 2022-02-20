@@ -54,7 +54,7 @@ const Book = () => {
           console.log(error);
         });
     },
-    [selected],
+    [],
   );
 
   invalid.map((inv) => {         // loop on data that get from database to push it in myivalid list to represent it 
@@ -83,6 +83,14 @@ const Book = () => {
       .catch(function (error) {
         console.log(error);
       });
+
+    axios.get('http://127.0.0.1:8000/invalid/')
+        .then(function (response) {
+          setInvalid(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     // console.log(FormData);
     // console.log(FormData['First_Name']);
   };
