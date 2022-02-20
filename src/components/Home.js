@@ -7,6 +7,7 @@ import Feedback from "./Feedback";
 import Intro from "./Intro";
 import Info from "./Info";
 import Map from "./Map";
+import Mapview from './Mapview';
 
 const Home = () => {
     return (
@@ -17,10 +18,11 @@ const Home = () => {
 
             <Intro/>
             <Service/>
+
            
             {/* <Info/> */}
             <Feedback/>
-            {/* <Map/> */}
+            <Map/>
         </div>);
 }
 

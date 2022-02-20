@@ -21,6 +21,7 @@ const Feedback = () => {
       }, [])
 
     console.log(feed2)
+    console.log()
 
 
 
@@ -84,7 +85,6 @@ const Feedback = () => {
                 </div>
                 <div>
                     <p>{item.saheb}</p>
-                    <p className="font">{item.car}</p>
                 </div>
 
 

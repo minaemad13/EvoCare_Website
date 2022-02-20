@@ -11,7 +11,7 @@ const Card = ({ data }) => {
 <button className="btn btn-warning rounded-pill "> Show More</button>
 </div> */}
         <div class="card-body bg " >
-          <h5 className="mb-3">{data.title}</h5>
+          <h5 className="mb-3 fw-bold">{data.title}</h5>
 
           <div>
             <button className="btn btn-outline-warning rounded-pill "> Show More</button>

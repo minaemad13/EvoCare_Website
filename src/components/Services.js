@@ -5,7 +5,7 @@ const Service = () => {
     // const D = [{sou"gallery_05.jpg","gallery_05.jpg","image_02-1.jpg","image_01-1.jpg","gallery_05.jpg","gallery_05.jpg"]
 
     return ( 
-    <div className=" mb-5 p-4 text-center">
+    <div className=" mb-5 p-4 text-center" id ='services'>
 <div className="mb-5 ">
         <h3>
         Our Services

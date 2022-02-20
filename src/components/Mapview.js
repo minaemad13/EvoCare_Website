@@ -17,12 +17,12 @@ const MapContainer = () => {
         lng: 31.218831838906784
       }}]
   const mapStyles = {        
-    height: "100%",
+    height: "200px",
     width: "100%"};
   
   const defaultCenter = {
     // 30.0444766843023, 31.235804443463177
-    lat:  30.0444766843023, lng: 31.235804443463177
+    lat: 30.060823126594073, lng: 31.218831838906784
   }
   
   return (

@@ -1,4 +1,3 @@
-// import { FaSistrix } from 'react-icons/fa';
 import { Link as L } from 'react-router-dom';
 import { Link } from 'react-scroll';
 // import { HashLink } from 'react-router-hash-link';
@@ -7,7 +6,7 @@ import { Link } from 'react-scroll';
 
 
 
-const Nav = () => {
+const NAvpublic = ({handleSubmit}) => {
 
   const handelScroll = e => {
     e.preventDefault();
@@ -23,6 +22,7 @@ const Nav = () => {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
         <div className="container-fluid">
           <a class="navbar-brand" href="#">
+            {/* <Logo/> */}
 
             <img src={require('../resources/logo.png')} alt="" class="d-inline-block img-responsive" />
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
@@ -35,6 +35,7 @@ const Nav = () => {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
                 <L className="nav-link active" to ="/"> Home</L>
+                {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
               </li>
               <li className="nav-item">
                 <Link onClick={() => handelScroll}
@@ -63,19 +64,21 @@ const Nav = () => {
               {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
               <ul className='navbar-nav mx-auto'>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">ٌRegister</a>
+                  <a className="nav-link" href="#">Register</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">Login</a>
                 </li></ul>
               <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button>
+              <button className="btn btn-sm btn-outline-warning " type="button" onClick={()=>handleSubmit}>Book Appoinement</button>
+
 
             </form>
 
 
 
 
-           
+            {/* <div className='mx-3'><FaSistrix className='search'/></div> */}
 
           </div>
 
@@ -85,4 +88,4 @@ const Nav = () => {
     </div>);
 }
 
-export default Nav;
+export default NAvpublic;
