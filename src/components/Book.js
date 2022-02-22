@@ -36,7 +36,7 @@ const Book = () => {
   var myinvalid = []
   var Tax = 50
 
-
+  // it will handel 
   const userid = localStorage.getItem("user_id");
   // const location = useLocation();
   // useEffect(() => {
@@ -66,7 +66,7 @@ const Book = () => {
     e.preventDefault();
     emailjs.sendForm("service_fh510hk",
       "template_mgopfxs", e.target,
-      "user_Qdr9KNtFvRj7X19Pg2l5x").then((res) => { console.log(res) }).catch(err => {
+      "user_Qdr9KNtFvRj7X19Pg2l5x").then((res) => { console.log("OK") }).catch(err => {
         console.log(err)
       })
     axios.post('http://127.0.0.1:8000/book', {
