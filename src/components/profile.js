@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function profile() {
   return (
-    <>
+    < div className="body1">
+      <br/><br/>
       <div className="container emp-profile justify-content-center">
         <form>
           <div className="row ">
@@ -144,6 +145,6 @@ export default function profile() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

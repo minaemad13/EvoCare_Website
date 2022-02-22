@@ -1,11 +1,11 @@
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 .login-block {
-  background: -webkit-linear-gradient(left, #a7a5c7, #020a24);
+  /* background: -webkit-linear-gradient(left, #a7a5c7, #020a24); */
 
   float: left;
   width: 100%;
   padding: 50px 0;
-}
+} 
 .banner-sec {
   background: url(https://scontent.fcai20-6.fna.fbcdn.net/v/t1.6435-9/53117829_349679565758321_4213667945953361920_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=j-U-MHNpodYAX90yO55&_nc_ht=scontent.fcai20-6.fna&oh=00_AT_7f-mXBuar09F2w0AVxKJS5Hcl6IqWpMm5WovJnw7U5Q&oe=6236259A)
     no-repeat left bottom;

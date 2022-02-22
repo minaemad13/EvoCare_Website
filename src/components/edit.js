@@ -2,7 +2,8 @@ import React from "react";
 import "./edit.css";
 export default function edit() {
   return (
-    <>
+    <div className="body1">
+      <br/><br/>
       <div className="container emp-profile">
         <form>
           <div className="row">
@@ -136,6 +137,6 @@ export default function edit() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }

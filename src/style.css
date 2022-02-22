@@ -8,11 +8,7 @@
 }
 .content1{
     background-color:rgb(24, 23, 23); 
-     
     color: white;
-    /* font-family: 'Lato', sans-serif; */
-    /* height: auto;
-    width: auto; */
 }
 
 .anch{
@@ -194,5 +190,5 @@ font-size: 23px;
        /* More rules... */
 }
 
-footer li:hover{
+footer .list-inline-item:hover{
     transform: scale(1.5);}
