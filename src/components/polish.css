@@ -1,0 +1,40 @@
+.list{
+    list-style: none;
+}
+
+.bgc{
+    background-color: rgb(34, 33, 33);
+    color: white;
+
+}
+.font{
+    color: rgb(238, 178, 43)
+}
+#cardd{
+    background-color: black;
+    color: aliceblue;
+    
+    }
+#bodyy{
+    background-image: url("../media/carbon.jpg");
+    background-size: cover norepeat ;
+
+
+}
+.cont{
+    color: aliceblue;
+    background-color: transparent;
+}
+
+
+.hr{
+    width:100px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.card{
+    background-color: black;
+    color: aliceblue;
+}
