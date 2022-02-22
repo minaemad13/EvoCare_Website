@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { BsInstagram, BsTwitter } from 'react-icons/bs'
 import { FaFacebookSquare } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 const Footer = () => {
 
     const [FormData, setFormData] = useState({
@@ -72,12 +73,12 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-2 ">
                         <h6 className=" mb-3"> Services</h6>
                         <ul className="list-unstyled small">
-                            <li><a href="#" className='anch'>Protection Film</a></li>
-                            <li><a href="#" className='anch'>Dipping</a></li>
-                            <li><a href="#" className='anch'>Polish</a></li>
-                            <li><a href="#" className='anch'>Nanoceramic</a></li>
-                            <li><a href="#" className='anch'>Car Care</a></li>
-                            <li><a href="#" className='anch'>Window Film</a></li>
+                            <li><Link to="/protectionfilm" className='anch'>Protection Film</Link></li>
+                            <li><Link to="/dipping" className='anch'>Dipping</Link></li>
+                            <li><Link to="/dipping" className='anch'>Polish</Link></li>
+                            <li><Link to="/nano" className='anch'>Nanoceramic</Link></li>
+                            <li><Link to="/car" className='anch'>Car Care</Link></li>
+                            <li><Link to="/windowfilm" className='anch'>Window Film</Link></li>
                         </ul>
                     </div>
                     <div className="col-lg-2 col-md-2 ">

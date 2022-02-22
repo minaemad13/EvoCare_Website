@@ -3,7 +3,7 @@ import "./protectionFilm.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import Carousel from "./service_carousel";
-function protectionFilm() {
+const protectionFilm = () => {
     return (
         <div className="bg py-5 text-center" id='body'>
             <div className="container cont py-5">

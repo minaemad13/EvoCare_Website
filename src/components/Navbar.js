@@ -53,7 +53,7 @@ const Nav = () => {
 
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About Us</a>
+                <L to="/about" className="nav-link" href="#">About Us</L>
               </li>
 
             </ul>
