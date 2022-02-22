@@ -9,6 +9,13 @@ import React from "react";
 import profile from "./components/profile";
 import edit from "./components/edit";
 import Book from "./components/Book";
+import protectionFilm from './components/protectionFilm';
+import About from './components/About';
+import dipping from './components/dipping';
+import carCar from './components/carCare';
+import nanoCeramic from './components/nanoCeramic';
+import polish from './components/polish';
+import windowFilm from './components/windowFilm';
 
 export default function App() {
   return (
@@ -23,6 +30,13 @@ export default function App() {
             <Route path={"/edit"} exact component={edit} />
             <Route path={"/book"} exact component={Book} />
             <Route path={"/login"} exact component={Login} />
+            <Route path={"/protectionfilm"} exact component={protectionFilm} />
+            <Route path={"/about"} exact component={About} />
+            <Route path={"/dipping"} exact component={dipping} />
+            <Route path={"/car"} exact component={carCar} />
+            <Route path={"/nano"} exact component={nanoCeramic} />
+            <Route path={"/polish"} exact component={polish} />
+            <Route path={"/windowfilm"} exact component={windowFilm} />
           </Switch>
           <Footer />
         </Router>
