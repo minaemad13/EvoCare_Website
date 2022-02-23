@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+import React from "react";
 const Card = ({ data }) => {
   console.log(data)
   return (<>

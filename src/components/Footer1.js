@@ -84,12 +84,12 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-2 ">
                         <h6 className="text-white mb-3">Quick links</h6>
                         <ul className="list-unstyled small">
-                            <li ><a href="#" className='anch'>Home</a></li>
-                            <li ><a href="#" className='anch'>About</a></li>
+                            <li ><Link to="/" className='anch'>Home</Link></li>
+                            <li ><Link to="/about" className='anch'>About</Link></li>
                         </ul>
                         <ul class="list-inline">
                     <li class ="list-inline-item"><a href='#'> <FaFacebookSquare className='icon2'/></a> </li>
-                    <li class ="list-inline-item"><a href='#'> <BsInstagram className='icon2'/></a> </li>
+                    <li class ="list-inline-item"><Link to={{ pathname: "https://www.instagram.com/evocare.egy/" }} target="_blank" > <BsInstagram className='icon2'/></Link> </li>
                 </ul>
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6">

@@ -16,12 +16,14 @@ import carCar from './components/carCare';
 import nanoCeramic from './components/nanoCeramic';
 import polish from './components/polish';
 import windowFilm from './components/windowFilm';
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <>
       <div className="App">
         <Router>
+          <ScrollToTop/>
           <Nav />
           <Switch>
             <Route path={"/"} exact component={Home} />
