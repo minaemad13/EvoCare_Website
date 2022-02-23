@@ -3,13 +3,14 @@ import "./windoFilm.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import Carousel from "./service_carousel";
 
 function windowFilm() {
     return (
         <div className="bg py-5 text-center"id='body'>
 
         <div className="container cont py-5">
-
+            <Carousel service_id={1} />
 
             <h2 className=" text-center mb-2">Window Film</h2>
             <hr className="hr"></hr>

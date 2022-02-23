@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { BsInstagram, BsTwitter } from 'react-icons/bs'
 import { FaFacebookSquare } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 const Footer = () => {
 
     const [FormData, setFormData] = useState({
@@ -72,23 +73,23 @@ const Footer = () => {
                     <div className="col-lg-2 col-md-2 ">
                         <h6 className=" mb-3"> Services</h6>
                         <ul className="list-unstyled small">
-                            <li><a href="#" className='anch'>Protection Film</a></li>
-                            <li><a href="#" className='anch'>Dipping</a></li>
-                            <li><a href="#" className='anch'>Polish</a></li>
-                            <li><a href="#" className='anch'>Nanoceramic</a></li>
-                            <li><a href="#" className='anch'>Car Care</a></li>
-                            <li><a href="#" className='anch'>Window Film</a></li>
+                            <li><Link to="/protectionfilm" className='anch'>Protection Film</Link></li>
+                            <li><Link to="/dipping" className='anch'>Dipping</Link></li>
+                            <li><Link to="/dipping" className='anch'>Polish</Link></li>
+                            <li><Link to="/nano" className='anch'>Nanoceramic</Link></li>
+                            <li><Link to="/car" className='anch'>Car Care</Link></li>
+                            <li><Link to="/windowfilm" className='anch'>Window Film</Link></li>
                         </ul>
                     </div>
                     <div className="col-lg-2 col-md-2 ">
                         <h6 className="text-white mb-3">Quick links</h6>
                         <ul className="list-unstyled small">
-                            <li ><a href="#" className='anch'>Home</a></li>
-                            <li ><a href="#" className='anch'>About</a></li>
+                            <li ><Link to="/" className='anch'>Home</Link></li>
+                            <li ><Link to="/about" className='anch'>About</Link></li>
                         </ul>
                         <ul class="list-inline">
                     <li class ="list-inline-item"><a href='#'> <FaFacebookSquare className='icon2'/></a> </li>
-                    <li class ="list-inline-item"><a href='#'> <BsInstagram className='icon2'/></a> </li>
+                    <li class ="list-inline-item"><Link to={{ pathname: "https://www.instagram.com/evocare.egy/" }} target="_blank" > <BsInstagram className='icon2'/></Link> </li>
                 </ul>
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6">

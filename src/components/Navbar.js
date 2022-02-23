@@ -22,12 +22,12 @@ const Nav = () => {
     <div className='container'>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
         <div className="container-fluid">
-          <a class="navbar-brand" href="#">
+          <Link class="navbar-brand" to="/">
 
             <img src={require('../resources/logo.png')} alt="" class="d-inline-block img-responsive" />
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
 
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -53,7 +53,7 @@ const Nav = () => {
 
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About Us</a>
+                <L  className="nav-link" to={"/about"}>About Us</L>
               </li>
 
             </ul>
@@ -63,10 +63,10 @@ const Nav = () => {
               {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
               <ul className='navbar-nav mx-auto'>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">ٌRegister</a>
+                  <L className="nav-link" to="/register">ٌRegister</L>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Login</a>
+                  <L className="nav-link" to="/login">Login</L>
                 </li></ul>
               {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
 

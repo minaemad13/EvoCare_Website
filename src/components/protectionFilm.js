@@ -1,9 +1,18 @@
 import React from 'react';
 import "./protectionFilm.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Carousel from "./service_carousel";
-function protectionFilm() {
+const protectionFilm = () => {
+
+    function ScrollToTopOnMount() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
+}
     return (
         <div className="bg py-5 text-center" id='body'>
             <div className="container cont py-5">

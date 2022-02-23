@@ -1,6 +1,6 @@
 import Card from "./Card";
 const Service = () => {
-    const D= [{id:1,source:"gallery_05.jpg",title:"Protection Film"},{id:2,source:"gallery_05.jpg",title:"Dipping"},{id:3,source:"image_02-1.jpg",title:"Polish"},{id:4,source:"image_01-1.jpg",title:"Nanoceramic"},{id:5,source:"gallery_05.jpg",title:"Car Care"},{id:6,source:"gallery_05.jpg",title:"Window Film"}]
+    const D= [{id:1,source:"gallery_05.jpg",title:"Protection Film",url:'/protectionfilm'},{id:2,source:"gallery_05.jpg",title:"Dipping",url:'/dipping'},{id:3,source:"image_02-1.jpg",title:"Polish",url:'/polish'},{id:4,source:"image_01-1.jpg",title:"Nanoceramic",url:'/nano'},{id:5,source:"gallery_05.jpg",title:"Car Care",url:"/car"},{id:6,source:"gallery_05.jpg",title:"Window Film",url:"/windowfilm"}]
 
     // const D = [{sou"gallery_05.jpg","gallery_05.jpg","image_02-1.jpg","image_01-1.jpg","gallery_05.jpg","gallery_05.jpg"]
 

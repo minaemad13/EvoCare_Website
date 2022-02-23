@@ -1,3 +1,6 @@
+import {Link} from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
+import React from "react";
 const Card = ({ data }) => {
   console.log(data)
   return (<>
@@ -14,8 +17,10 @@ const Card = ({ data }) => {
           <h5 className="mb-3 fw-bold">{data.title}</h5>
 
           <div>
+            <Link to={`${data.url}`}>
             <button className="btn btn-outline-warning rounded-pill "> Show More</button>
-          </div>
+           </Link>
+            </div>
         </div>
 
 
