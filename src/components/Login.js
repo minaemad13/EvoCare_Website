@@ -14,6 +14,7 @@ export default function Login() {
   const [FormValues, setFormValues] = useState(initialValues);
   const [FormErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const [logMessage, setlogMessage] = useState('');
   const handleClickShowPassword = () => {
     setFormValues({ ...FormValues, showPassword: !FormValues.showPassword });
   };
@@ -40,12 +41,20 @@ export default function Login() {
       })
       .then(function (response) {
         // console.log(response.data.user_id);
+        // console.log(response.data.message);
+        if(response.request.status === 200){
+                    setlogMessage('')
+                }
+                else{
+                    setlogMessage(response.request.message)
+                };
         localStorage.setItem("email", FormValues.email);
         localStorage.setItem("password", FormValues.password);
         localStorage.setItem("user_id", response.data.user_id);
       })
       .catch(function (error) {
         console.log(error);
+        setlogMessage("the email or password is not correct");
       });
 
     setIsSubmit(true);
@@ -91,7 +100,7 @@ export default function Login() {
               <h2 className="text-center">Login </h2>
               {Object.keys(FormErrors).length === 0 && isSubmit ? (
                 <div classNameName="ui message success">
-                  Signed in successfully
+                  {/*Signed in successfully*/}
                 </div>
               ) : (
                 console.log(JSON.stringify(FormValues, undefined, 2))
@@ -143,8 +152,10 @@ export default function Login() {
                     <label for="floatingInput">Password</label>
                   </div>
                 </div>
+                {logMessage && <p className="alert alert-danger">
+                  {logMessage}
+                </p>}
                 <br />
-
                 <div className="form-check">
                   <label className="form-check-label">
                     <input type="checkbox" className="form-check-input" />
