@@ -67,7 +67,11 @@ const Nav = () => {
                 </li>
                 <li className="nav-item">
                   <L className="nav-link" to="/login">Login</L>
-                </li></ul>
+                </li>
+                <li className="nav-item">
+                  <L className="nav-link" to="/login">Logout</L>
+                </li>
+                </ul>
               {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
 
             </form>
