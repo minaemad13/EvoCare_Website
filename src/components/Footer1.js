@@ -3,17 +3,22 @@ import axios from 'axios';
 import { BsInstagram, BsTwitter } from 'react-icons/bs'
 import { FaFacebookSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+import jwt from 'jwt-decode'
 const Footer = () => {
 
     const [FormData, setFormData] = useState({
         user_name: "",
         feedback: "",
     });
-    const handleSubmit = () => {
-        var userid = 1
 
+    const token= localStorage.getItem("token");
+    const user = jwt(token);
+    const user_id=user.id 
+    const handleSubmit = (e) => {
+        
+        e.preventDefault();
         axios.post('http://127.0.0.1:8000/feedback/', {
-            "user_id": userid,
+            "user_id": user_id,
             "user_name": FormData['user_name'],
             "feedback": FormData['feedback'],
 
@@ -34,11 +39,7 @@ const Footer = () => {
                 ...FormData,
                 user_name: e.target.value
             });
-            //   setFormErr({
-            //     ...FormErr,
-            //     First_NameErr:
-            //       e.target.value.length === 0 ? "This Fieald is required" : ""
-            //   });
+           
 
         }
         if (e.target.name === "feedback") {
@@ -94,7 +95,7 @@ const Footer = () => {
                     </div>
                     <div className="col-lg-4 col-md-4 col-sm-6">
                             <h6 className="text-white mb-3">Message</h6>
-                            <form action='post' onSubmit={(e) => handleSubmit(e)}>
+                            <form method='POST' onSubmit={(e) => handleSubmit(e)}>
                                 <div className="input-group pe-5">
                                     <div className="mb-2">
                                         <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name" value={FormData.user_name} name="user_name" onChange={(e) => FormHandeller(e)} />
