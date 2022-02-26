@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./profile.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import jwt from "jwt-decode";
 
-export default function profile() {
+export default function Profile() {
+  const initialValues = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    repeatpassword: "",
+    phone: "",
+    bdate: "",
+    address: "",
+  };
+  const [FormValues, setFormValues] = useState(initialValues);
+  // const token = localStorage.getItem("token");
+  // const user = jwt(token);
+  // const user_id = user.id;
+
+  // axios
+  //   .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+
   return (
-    < div className="body1">
-      <br/><br/>
+    <div className="body1">
+      <br />
+      <br />
       <div className="container emp-profile justify-content-center">
         <form>
           <div className="row ">
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Mariam</h5>
+                {/* <h5>Welcome:{FormValues.firstname}</h5> */}
 
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                   <li className="nav-item">
@@ -47,43 +74,35 @@ export default function profile() {
                 >
                   <div className="row">
                     <div className="col-md-6">
-                      <label>User Id</label>
+                      <label>Full Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Kshiti123</p>
+                      {/* <p>{FormValues.firstname}</p> */}
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Name</label>
+                      <label>E-mail</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>Kshiti Ghelani</p>
-                    </div>
+                    <div className="col-md-6">{/* <p>{email}</p> */}</div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Email</label>
+                      <label>Password</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>kshitighelani@gmail.com</p>
-                    </div>
+                    <div className="col-md-6">{/* <p>{password}</p> */}</div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
                       <label>Phone</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>123 456 7890</p>
-                    </div>
+                    <div className="col-md-6">{/* <p>{phone}</p> */}</div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Profession</label>
+                      <label>Birth Date</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>Web Developer and Designer</p>
-                    </div>
+                    <div className="col-md-6">{/* <p>{birth}</p> */}</div>
                   </div>
                 </div>
                 <div
@@ -94,50 +113,9 @@ export default function profile() {
                 >
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Experience</label>
+                      <label>Address</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Hourly Rate</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>10$/hr</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Total Projects</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>230</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>English Level</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Availability</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>6 months</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <label>Your Bio</label>
-                      <br />
-                      <p>Your detail description</p>
-                    </div>
+                    <div className="col-md-6">{/* <p>{address}</p> */}</div>
                   </div>
                 </div>
               </div>

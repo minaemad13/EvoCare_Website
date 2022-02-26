@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./edit.css";
-export default function edit() {
+
+export default function Edit() {
+  const initialValues = {
+    firstname: "",
+    lastname: "",
+
+    password: "",
+    repeatpassword: "",
+    phone: "",
+    bdate: "",
+    address: "",
+  };
+
+  const [FormValues, setFormValues] = useState(initialValues);
+  const [FormErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(FormValues));}
+
+  // const token = localStorage.getItem("token");
+  // const user = jwt(token);
+  // const user_id = user.id;
+
+  // axios
+  //   .get(`http://127.0.0.1:8000/edit/${user_id}`)
+  //   .then(function (response) {
+  //     console.log(response.data);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
   return (
     <div className="body1">
-      <br/><br/>
+      <br />
+      <br />
       <div className="container emp-profile">
         <form>
           <div className="row">
@@ -40,7 +72,40 @@ export default function edit() {
                 >
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Old Password</label>
+                      <label>First Name</label>
+                    </div>
+                    <div className="col-md-6">
+                      <div class="input-group mb-3">
+                        <input
+                         value ={FormValues.firstname}
+                          type="text"
+                          class="form-control"
+                          placeholder="First Name"
+                          aria-label="First Name"
+                          aria-describedby="basic-addon1"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>Last Name</label>
+                    </div>
+                    <div className="col-md-6">
+                      <div class="input-group mb-3">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Old Password"
+                          aria-label="Old Password"
+                          aria-describedby="basic-addon1"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>Address</label>
                     </div>
                     <div className="col-md-6">
                       <div class="input-group mb-3">
