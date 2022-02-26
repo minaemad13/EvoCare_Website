@@ -1,13 +1,18 @@
 import { Link as L } from 'react-router-dom';
 import { Link } from 'react-scroll';
-// import { HashLink } from 'react-router-hash-link';
+import { useState } from 'react';
 
 
 
 
 
-const NAvpublic = ({handleSubmit}) => {
 
+const NAvpublic = () => {
+  const [isAuthenticated,setIsAuthenticated]=useState(
+  localStorage.getItem("token")
+  )
+
+  
   const handelScroll = e => {
     e.preventDefault();
     const main = this.main.current;
@@ -21,13 +26,12 @@ const NAvpublic = ({handleSubmit}) => {
     <div className='container'>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
         <div className="container-fluid">
-          <a class="navbar-brand" href="#">
-            {/* <Logo/> */}
+          <Link class="navbar-brand" to="/">
 
             <img src={require('../resources/logo.png')} alt="" class="d-inline-block img-responsive" />
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
 
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -35,7 +39,6 @@ const NAvpublic = ({handleSubmit}) => {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
                 <L className="nav-link active" to ="/"> Home</L>
-                {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
               </li>
               <li className="nav-item">
                 <Link onClick={() => handelScroll}
@@ -54,31 +57,44 @@ const NAvpublic = ({handleSubmit}) => {
 
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About Us</a>
+                <L  className="nav-link" to={"/about"}>About Us</L>
               </li>
 
             </ul>
 
 
             <form className="d-flex" >
-              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
-              <ul className='navbar-nav mx-auto'>
+
+
+              {isAuthenticated?<ul>
+                <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> 
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Register</a>
+                   <button className=" btn nav-link" >Logout</button>
+                </li>
+              </ul>
+               :<ul className='navbar-nav mx-auto'>
+                <li className="nav-item">
+                  <L className="nav-link" to="/register">ٌRegister</L>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Login</a>
-                </li></ul>
-              <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button>
-              <button className="btn btn-sm btn-outline-warning " type="button" onClick={()=>handleSubmit}>Book Appoinement</button>
-
+                  <L className="nav-link" to="/login">Login</L>
+                </li></ul>}
+              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
+              {/* <ul className='navbar-nav mx-auto'>
+                <li className="nav-item">
+                  <L className="nav-link" to="/register">ٌRegister</L>
+                </li>
+                <li className="nav-item">
+                  <L className="nav-link" to="/login">Login</L>
+                </li></ul> */}
+              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
 
             </form>
 
 
 
 
-            {/* <div className='mx-3'><FaSistrix className='search'/></div> */}
+           
 
           </div>
 
@@ -87,5 +103,4 @@ const NAvpublic = ({handleSubmit}) => {
 
     </div>);
 }
-
 export default NAvpublic;

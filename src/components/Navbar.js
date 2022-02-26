@@ -7,7 +7,7 @@ import { Link } from 'react-scroll';
 
 
 
-const Nav = () => {
+const Nav = ({setIsAuthenticated}) => {
 
   const handelScroll = e => {
     e.preventDefault();
@@ -18,6 +18,7 @@ const Nav = () => {
       behavior: "instant"
     });
   }
+ 
   return (
     <div className='container'>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
@@ -62,13 +63,12 @@ const Nav = () => {
             <form className="d-flex" >
               {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
               <ul className='navbar-nav mx-auto'>
+
                 <li className="nav-item">
-                  <L className="nav-link" to="/register">ٌRegister</L>
+                   <button className=" btn nav-link" >Logout</button>
                 </li>
-                <li className="nav-item">
-                  <L className="nav-link" to="/login">Login</L>
-                </li></ul>
-              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
+                </ul>
+              <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button>
 
             </form>
 

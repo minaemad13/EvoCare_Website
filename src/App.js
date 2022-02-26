@@ -1,5 +1,5 @@
 import "./style.css";
-import Nav from "./components/Navbar";
+// import Nav from "./components/Navbar";
 import Home from "./components/Home";
 import Footer from "./components/Footer1";
 import Register from "./components/Register";
@@ -17,20 +17,26 @@ import nanoCeramic from './components/nanoCeramic';
 import polish from './components/polish';
 import windowFilm from './components/windowFilm';
 import ScrollToTop from "./components/ScrollToTop";
+import ProtectedRouts from "./components/ProtectedRouts"
+import { useState } from "react";
+import Nav from "./components/Nav";
+import NAvpublic from "./components/NAvpublic";
 
 export default function App() {
+  
   return (
     <>
       <div className="App">
         <Router>
           <ScrollToTop/>
-          <Nav />
+          <NAvpublic/>
+          {/* <Nav isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} /> */}
           <Switch>
             <Route path={"/"} exact component={Home} />
             <Route path={"/register"} exact component={Register} />
             <Route path={"/profile"} exact component={profile} />
             <Route path={"/edit"} exact component={edit} />
-            <Route path={"/book"} exact component={Book} />
+            <ProtectedRouts path={'/book'} exact component={Book} />
             <Route path={"/login"} exact component={Login} />
             <Route path={"/protectionfilm"} exact component={protectionFilm} />
             <Route path={"/about"} exact component={About} />
