@@ -1,24 +1,50 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import "./edit.css";
-
+import axios from "axios";
+import jwt from "jwt-decode";
 export default function Edit() {
-  const initialValues = {
-    firstname: "",
-    lastname: "",
 
-    password: "",
-    repeatpassword: "",
-    phone: "",
-    bdate: "",
-    address: "",
-  };
 
-  const [FormValues, setFormValues] = useState(initialValues);
-  const [FormErrors, setFormErrors] = useState({});
+  const [FormValues, setFormValues] = useState([]);
+  const [FormErrors, setFormErrors] = useState([]);
   const [isSubmit, setIsSubmit] = useState(false);
+
+  const token = localStorage.getItem("token");
+  const user = jwt(token);
+  const user_id = user.id;
+
+  useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
+   () => {
+     axios
+     .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+     .then(function (response) {
+       setFormValues(response.data)
+     })
+     .catch(function (error) {
+       console.log(error);
+     });
+   },
+   [],
+ );
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(FormValues));
+    axios.put(`http://127.0.0.1:8000/edit/${user_id}`, {
+      "First_Name": FormValues.First_Name,
+      "Last_Name": FormValues.Last_Name,
+      "phone": FormValues.phone,
+      "email":FormValues.email,
+      "address":FormValues.address ,
+      "birth": FormValues.birth,
+      "password":FormValues.password,
+    })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
   };
 
   const handleChange = (e) => {
@@ -26,6 +52,7 @@ export default function Edit() {
     const { name, value } = e.target;
     setFormValues({ ...FormValues, [name]: value });
     console.log(FormValues);
+    setFormErrors(validate(FormValues));
   };
 
   useEffect(() => {
@@ -39,7 +66,7 @@ export default function Edit() {
     const validname = /[A-Za-z]$/;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     const validPassword =
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+      /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     const validphone = /^01[0125][0-9]{8}$/;
 
     if (!values.firstname) {
@@ -69,7 +96,7 @@ export default function Edit() {
     }
     if (!values.repeatpassword) {
       errors.repeatpassword = "Please Repeat Your Password ";
-    } else if (values.repeatpassword != values.password) {
+    } else if (values.repeatpassword !== values.password) {
       errors.repeatpassword = "Passwords Don't Match";
     }
     if (!values.phone) {
@@ -80,61 +107,47 @@ export default function Edit() {
     if (!values.address) {
       errors.address = "Address is required!";
     }
-    if (!values.bdate) {
-      errors.bdate = "Birth Date is required!";
-    }
+
     return errors;
   };
 
-  // const token = localStorage.getItem("token");
-  // const user = jwt(token);
-  // const user_id = user.id;
-
-  // axios
-  //   .get(`http://127.0.0.1:8000/edit/${user_id}`)
-  //   .then(function (response) {
-  //     console.log(response.data);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
   return (
     <div className="body1">
       <br />
       <br />
       <div className="container emp-profile">
-        <form>
-          <div className="row">
-            <div className="col-md-6">
-              <div className="profile-head">
-                <h5 className="text-center">Mariam Adel</h5>
-                {/* username */}
-                {Object.keys(FormErrors).length === 0 && isSubmit ? (
-                  <div classNameName="ui message success">
-                    Registered successfully
-                  </div>
-                ) : (
-                  console.log(JSON.stringify(FormValues, undefined, 2))
-                )}
+        <div className="row">
+          <div className="col-md-6">
+            <div className="profile-head">
+              <h5 className="text-center">{FormValues.First_Name} {FormValues.Last_Name}</h5>
 
-                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      id="home-tab"
-                      data-toggle="tab"
-                      href="#home"
-                      role="tab"
-                      aria-controls="home"
-                      aria-selected="true"
-                    >
-                      User Info
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              {Object.keys(FormErrors).length === 0 && isSubmit ? (
+                <div classNameName="ui message success">
+                  Updated successfully
+                </div>
+              ) : (
+                console.log(JSON.stringify(FormValues, undefined, 2))
+              )}
+
+              <ul className="nav nav-tabs" id="myTab" role="tablist">
+                <li className="nav-item">
+                  <a
+                    className="nav-link active"
+                    id="home-tab"
+                    data-toggle="tab"
+                    href="#home"
+                    role="tab"
+                    aria-controls="home"
+                    aria-selected="true"
+                  >
+                    User Info
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
+        <form onSubmit={(e) => {handleSubmit(e)}} method="POST" className="edit-form">
           <div className="row">
             <div className="col-md-8">
               <div className="tab-content profile-tab" id="myTabContent">
@@ -152,16 +165,20 @@ export default function Edit() {
                       <div class="input-group mb-3">
                         <input
                           type="text"
-                          class="form-control"
+                          name="First_Name"
+                          className="form-control"
                           placeholder="First Name"
                           aria-label="First Name"
                           aria-describedby="basic-addon1"
-                          value={FormValues.firstname}
+                          value={FormValues.First_Name}
                           onChange={handleChange}
                         />
                       </div>
+                      <p id="msg">{FormErrors.firstname}</p>
                     </div>
                   </div>
+                  <br />
+                 
                   <div className="row">
                     <div className="col-md-6">
                       <label>Last Name</label>
@@ -169,35 +186,64 @@ export default function Edit() {
                     <div className="col-md-6">
                       <div class="input-group mb-3">
                         <input
+                          name="Last_Name"
                           type="text"
-                          class="form-control"
-                          placeholder="Old Password"
-                          aria-label="Old Password"
+                          className="form-control"
+                          placeholder="Last Name"
+                          aria-label="Last Name"
                           aria-describedby="basic-addon1"
-                          value={FormValues.lastname}
+                          value={FormValues.Last_Name}
                           onChange={handleChange}
                         />
                       </div>
+                      <p id="msg">{FormErrors.lastname}</p>
                     </div>
                   </div>
+                  <br />
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Address</label>
+                      <label>Birth Date</label>
                     </div>
                     <div className="col-md-6">
                       <div class="input-group mb-3">
                         <input
                           type="text"
+                          name="birth"
+                          className="form-control"
+                          placeholder="Bitth Date"
+                          aria-label="First Name"
+                          aria-describedby="basic-addon1"
+                          value={FormValues.birth}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    
+                    </div>
+                  </div>
+                  <br/>
+
+                  <div className="row">
+                    <div className="col-md-6">
+                      <label>Address</label>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="input-group mb-3">
+                        <input
+                          type="text"
+                          name="address"
                           class="form-control"
-                          placeholder="Old Password"
-                          aria-label="Old Password"
+                          placeholder="Address"
+                          aria-label="Address"
                           aria-describedby="basic-addon1"
                           value={FormValues.address}
                           onChange={handleChange}
                         />
                       </div>
+                      <p id="msg">{FormErrors.address}</p>
                     </div>
                   </div>
+                  <br />
+
                   <div className="row">
                     <div className="col-md-6">
                       <label>New Password</label>
@@ -205,8 +251,9 @@ export default function Edit() {
                     <div className="col-md-6">
                       <div class="input-group mb-3">
                         <input
-                          type="text"
-                          class="form-control"
+                          type="password"
+                          name="password"
+                          className="form-control"
                           placeholder="New Password"
                           aria-label="New Password"
                           aria-describedby="basic-addon1"
@@ -214,8 +261,11 @@ export default function Edit() {
                           onChange={handleChange}
                         />
                       </div>
+                      <p id="msg">{FormErrors.password}</p>
                     </div>
                   </div>
+                  <br />
+
                   <div className="row">
                     <div className="col-md-6">
                       <label>Confirm New Password</label>
@@ -224,8 +274,9 @@ export default function Edit() {
                     <div className="col-md-6">
                       <div class="input-group mb-3">
                         <input
-                          type="text"
-                          class="form-control"
+                          type="password"
+                          name="repeatpassword"
+                          className="form-control"
                           placeholder="Confirm New Password"
                           aria-label="Confirm New Password"
                           aria-describedby="basic-addon1"
@@ -233,8 +284,11 @@ export default function Edit() {
                           onChange={handleChange}
                         />
                       </div>
+                      <p id="msg">{FormErrors.repeatpassword}</p>
                     </div>
                   </div>
+                  <br />
+
                   <div className="row">
                     <div className="col-md-6">
                       <label>E-Mail</label>
@@ -243,8 +297,9 @@ export default function Edit() {
                       <div className="col-md-6">
                         <div class="input-group mb-3">
                           <input
-                            type="text"
-                            class="form-control"
+                            type="email"
+                            className="form-control"
+                            name="email"
                             placeholder="E-Mail"
                             aria-label="E-Mail"
                             aria-describedby="basic-addon1"
@@ -252,9 +307,12 @@ export default function Edit() {
                             onChange={handleChange}
                           />
                         </div>
+                        <p id="msg">{FormErrors.email}</p>
                       </div>
                     </div>
                   </div>
+                  <br />
+
                   <div className="row">
                     <div className="col-md-6">
                       <label>Phone Number</label>
@@ -263,16 +321,17 @@ export default function Edit() {
                       <div className="col-md-6">
                         <div class="input-group mb-3">
                           <input
-                            type="text"
-                            class="form-control"
+                            type="tel"
+                            className="form-control"
                             placeholder="Phone Number"
                             aria-label="Phone Number"
+                            name="phone"
                             value={FormValues.phone}
                             onChange={handleChange}
                             aria-describedby="basic-addon1"
                           />
-                          
                         </div>
+                        <p id="msg">{FormErrors.phone}</p>
                       </div>
                     </div>
                   </div>
@@ -282,8 +341,9 @@ export default function Edit() {
           </div>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">
             <input
-              type="button"
-              className="btn btn-outline-info me-md-2"
+              className="btn btn-outline-warning me-md-2"
+              type="submit"
+              className="btn btn-login btn-outline-danger"
               name="save"
               value="Save"
             />
