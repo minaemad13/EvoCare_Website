@@ -1,39 +1,63 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "./profile.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import jwt from "jwt-decode";
 
-export default function profile() {
+export default function Profile() {
+  
+
+   const [FormValues, setFormValues] = useState([]);
+   const token = localStorage.getItem("token");
+   const user = jwt(token);
+   const user_id = user.id;
+ 
+   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
+    () => {
+      axios
+      .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+      .then(function (response) {
+        setFormValues(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    [],
+  );
   return (
-    < div className="body1">
-      <br/><br/>
-      <div className="container emp-profile justify-content-center">
+    <div className="body1" style={{backgroundColor:"#1C1C1C"}}>
+      <br />
+      <br />
+      <div className="container emp-profile justify-content-center"  style={{backgroundColor:"#1C1C1C"}}>
         <form>
           <div className="row ">
             <div className="col-md-6">
               <div className="profile-head">
-                <h5>Mariam</h5>
+                {/* <h5>Welcome:{FormValues.firstname}</h5> */}
 
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                   <li className="nav-item">
                     <a
-                      className="nav-link active"
+                      className="nav-link active btn btn-outline-warning"
                       id="home-tab"
+                      style={{backgroundColor:"#1C1C1C",color:"white" ,borderBottom:"5px solid #EFB533"}}
                       data-toggle="tab"
                       href="#home"
                       role="tab"
                       aria-controls="home"
                       aria-selected="true"
                     >
-                      User Info
+                      {FormValues.First_Name} Info
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className="col-md-2">
-              <button className="btn btn-outline-info">
-                <Link to="/edit">Edit Profile</Link>
-              </button>
+              
+                <Link className="btn btn-outline-warning" to="/edit">Edit Profile</Link>
+      
             </div>
           </div>
           <div className="row">
@@ -47,97 +71,36 @@ export default function profile() {
                 >
                   <div className="row">
                     <div className="col-md-6">
-                      <label>User Id</label>
+                      <label style={{color:"white"}}>Full Name</label>
                     </div>
                     <div className="col-md-6">
-                      <p>Kshiti123</p>
+                      <p style={{color:"#EFB533"}}>{FormValues.First_Name} {FormValues.Last_Name}</p>
                     </div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Name</label>
+                      <label style={{color:"white"}}>E-mail</label>
                     </div>
+                    <div className="col-md-6"><p style={{color:"#EFB533"}}>{FormValues.email}</p></div>
+                  </div>
+                  
+                  <div className="row">
                     <div className="col-md-6">
-                      <p>Kshiti Ghelani</p>
+                      <label style={{color:"white"}}>Phone</label>
                     </div>
+                    <div className="col-md-6"><p style={{color:"#EFB533"}}>{FormValues.phone}</p></div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Email</label>
+                      <label style={{color:"white"}}>Birth Date</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>kshitighelani@gmail.com</p>
-                    </div>
+                    <div className="col-md-6"><p style={{color:"#EFB533"}}>{FormValues.birth}</p></div>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Phone</label>
+                      <label style={{color:"white"}}>Address</label>
                     </div>
-                    <div className="col-md-6">
-                      <p>123 456 7890</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Profession</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Web Developer and Designer</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="profile"
-                  role="tabpanel"
-                  aria-labelledby="profile-tab"
-                >
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Experience</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Hourly Rate</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>10$/hr</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Total Projects</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>230</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>English Level</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>Expert</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <label>Availability</label>
-                    </div>
-                    <div className="col-md-6">
-                      <p>6 months</p>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <label>Your Bio</label>
-                      <br />
-                      <p>Your detail description</p>
-                    </div>
+                    <div className="col-md-6"><p style={{color:"#EFB533"}}>{FormValues.address}</p></div>
                   </div>
                 </div>
               </div>
@@ -145,6 +108,7 @@ export default function profile() {
           </div>
         </form>
       </div>
+     
     </div>
   );
 }
