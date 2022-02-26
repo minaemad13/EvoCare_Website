@@ -6,7 +6,7 @@ const Intro = () => {
     return (<>
         <div className="p-5 " id = 'container'>
             <div className="text-center">
-                <h3 className="mb-4">Who is Evo Care</h3>
+                <h3 className="mb-4">Who is EvoCare</h3>
                 <hr className="hr " />
                 <p className="font mb-5">Car wash & detailling service</p>
             </div>

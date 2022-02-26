@@ -11,11 +11,11 @@ const Footer = () => {
         feedback: "",
     });
 
-    const token= localStorage.getItem("token");
-    const user = jwt(token);
-    const user_id=user.id 
+   
     const handleSubmit = (e) => {
-        
+        const token= localStorage.getItem("token");
+        const user = jwt(token);
+        const user_id=user.id 
         e.preventDefault();
         axios.post('http://127.0.0.1:8000/feedback/', {
             "user_id": user_id,
