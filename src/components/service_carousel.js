@@ -40,6 +40,7 @@ export default ({service_id}) => {
                             </div>)
                 })}
             </Carousel>
+            <br/>
         </div>
     );
 }
