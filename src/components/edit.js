@@ -2,7 +2,9 @@ import React, { useState ,useEffect} from "react";
 import "./edit.css";
 import axios from "axios";
 import jwt from "jwt-decode";
+import { useHistory } from 'react-router-dom'
 export default function Edit() {
+  const history = useHistory()
 
 
   const [FormValues, setFormValues] = useState([]);
@@ -48,10 +50,12 @@ export default function Edit() {
    } )
       .then(function (response) {
         console.log(response);
+
       })
       .catch(function (error) {
         console.log(error);
       });
+      history.push('/profile'); 
 
   };
 
