@@ -1,13 +1,80 @@
 import { Link as L } from 'react-router-dom';
 import { Link } from 'react-scroll';
+import jwt from "jwt-decode"
+import { useEffect, useState } from 'react';
+import axios from "axios";
 // import { HashLink } from 'react-router-hash-link';
 
+// import { HashLink as Linkh } from 'react-router-hash-link';
 
 
 
 
-const NAvpublic = ({handleSubmit}) => {
 
+
+
+
+const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
+  const [name,setName] = useState("")
+
+  useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
+    () => {
+      const token= localStorage.getItem("token");
+      const user = jwt(token);
+      const user_id=user.id 
+    
+      axios
+      .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+      .then(function (response) {
+        console.log(response.data.First_Name)
+        setName(response.data.First_Name)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    [],
+  );
+
+
+
+
+  // const handelprofile=()=>{
+  //   const token= localStorage.getItem("token");
+  //   const user = jwt(token);
+  //   const user_id=user.id 
+  //   const name=""
+  //   axios
+  //   .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+  //   .then(function (response) {
+  //     console.log(response.data.First_Name)
+  //     setName(response.data.First_Name)
+    
+      
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+   
+
+  // }
+
+
+
+
+  const scrollTop=()=>{
+    window.scrollTo(0, 0)
+
+  }
+
+  const handellogout = ()=>{
+    localStorage.removeItem('token');
+    setIsAuthenticated(null)
+  }
+
+
+
+  
   const handelScroll = e => {
     e.preventDefault();
     const main = this.main.current;
@@ -21,24 +88,24 @@ const NAvpublic = ({handleSubmit}) => {
     <div className='container'>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
         <div className="container-fluid">
-          <a class="navbar-brand" href="#">
-            {/* <Logo/> */}
+          <Link class="navbar-brand" to="/">
 
             <img src={require('../resources/logo.png')} alt="" class="d-inline-block img-responsive" />
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
 
-          </a>
+          </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <L className="nav-link active" to ="/"> Home</L>
-                {/* <a className="nav-link active" aria-current="page" href="#">Home</a> */}
+             
+                <L className="nav-link active" to ="/" onClick={scrollTop}> Home</L>
               </li>
+        
               <li className="nav-item">
-                <Link onClick={() => handelScroll}
+              <Link onClick={() => handelScroll}
                   to="services"
                   activeClass="active"
 
@@ -52,33 +119,49 @@ const NAvpublic = ({handleSubmit}) => {
                   Services
                 </Link>
 
+              
+
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About Us</a>
+                <L  className="nav-link" to={"/about"}>About Us</L>
               </li>
 
             </ul>
 
 
             <form className="d-flex" >
-              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
+
+
+              {isAuthenticated?
+              <> 
               <ul className='navbar-nav mx-auto'>
+                <li className='nav-item'>
+                  <L to = "/book">
+              <button className="btn btn-sm btn-outline-warning ">Book Appoinement</button>
+              </L>
+              </li>
+      
+                <li className="nav-item " onClick={handellogout} >
+                 <L className="nav-link" to="/login">Logout</L>
+                </li>
+                <li className="nav-item  ">
+                <L className="nav-link "to ="/profile" >{name} </L>
+                </li>
+              </ul ></>
+               :<ul className='navbar-nav mx-auto'>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Register</a>
+                  <L className="nav-link" to="/register">ٌRegister</L>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Login</a>
-                </li></ul>
-              <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button>
-              <button className="btn btn-sm btn-outline-warning " type="button" onClick={()=>handleSubmit}>Book Appoinement</button>
-
+                  <L className="nav-link" to="/login">Login</L>
+                </li></ul>}
 
             </form>
 
 
 
 
-            {/* <div className='mx-3'><FaSistrix className='search'/></div> */}
+           
 
           </div>
 
@@ -87,5 +170,4 @@ const NAvpublic = ({handleSubmit}) => {
 
     </div>);
 }
-
 export default NAvpublic;

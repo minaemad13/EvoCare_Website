@@ -2,7 +2,9 @@ import React, { useState ,useEffect} from "react";
 import "./edit.css";
 import axios from "axios";
 import jwt from "jwt-decode";
+import { useHistory } from 'react-router-dom'
 export default function Edit() {
+  const history = useHistory()
 
 
   const [FormValues, setFormValues] = useState([]);
@@ -16,7 +18,10 @@ export default function Edit() {
   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
    () => {
      axios
-     .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+     .get(`http://127.0.0.1:8000/getuser/${user_id}`,{headers:{
+     
+      'Authorization': token
+  }})
      .then(function (response) {
        setFormValues(response.data)
      })
@@ -29,7 +34,7 @@ export default function Edit() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.put(`http://127.0.0.1:8000/edit/${user_id}`, {
+   const data1={
       "First_Name": FormValues.First_Name,
       "Last_Name": FormValues.Last_Name,
       "phone": FormValues.phone,
@@ -37,13 +42,20 @@ export default function Edit() {
       "address":FormValues.address ,
       "birth": FormValues.birth,
       "password":FormValues.password,
-    })
+    }
+    axios.put(`http://127.0.0.1:8000/edit/${user_id}`,data1, {headers:{
+     
+      'Authorization': token
+    }
+   } )
       .then(function (response) {
         console.log(response);
+
       })
       .catch(function (error) {
         console.log(error);
       });
+      history.push('/profile'); 
 
   };
 

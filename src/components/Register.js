@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Reg.css";
 import moment from "react-moment";
@@ -9,6 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import FloatingWhatsApp from "react-floating-whatsapp";
 // import Datepicker from "react-datepicker";
 export default function Login() {
+  const history= useHistory()
   const initialValues = {
     firstname: "",
     lastname: "",
@@ -38,6 +39,7 @@ export default function Login() {
         birth: FormValues["bdate"],
       })
       .then(function (response) {
+        history.push('/login'); 
         console.log(response);
       })
       .catch(function (error) {

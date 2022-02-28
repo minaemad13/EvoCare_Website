@@ -49,7 +49,10 @@ const Book = () => {
 
   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
     () => {
-      axios.get('http://127.0.0.1:8000/invalid/')
+      axios.get('http://127.0.0.1:8000/invalid/',{headers:{
+     
+        'Authorization': token
+    }})
         .then(function (response) {
           setInvalid(response.data)
         })
@@ -72,14 +75,22 @@ console.log(myinvalid)
       "user_Qdr9KNtFvRj7X19Pg2l5x").then((res) => { console.log("OK") }).catch(err => {
         console.log(err)
       })
-    axios.post('http://127.0.0.1:8000/book', {
-      "Date_Time": selected,
-      "User_Id": user_id,
-      "First_Name": FormData["First_Name"],
-      "Last_Name": FormData["Last_Name"],
-      "Email": FormData["Email"],
-      "Phone": FormData["Phone"],
-    })
+    const data1= {
+        "Date_Time": selected,
+        "User_Id": user_id,
+        "First_Name": FormData["First_Name"],
+        "Last_Name": FormData["Last_Name"],
+        "Email": FormData["Email"],
+        "Phone": FormData["Phone"],
+      }
+    axios.post('http://127.0.0.1:8000/book', data1,{
+      headers: {
+      
+        'Authorization': token
+    
+  }
+}
+    )
       .then(function (response) {
         console.log(response);
       })
@@ -87,7 +98,10 @@ console.log(myinvalid)
         console.log(error);
       });
     
-    axios.get('http://127.0.0.1:8000/invalid/')
+    axios.get('http://127.0.0.1:8000/invalid/', {headers:{
+     
+      'Authorization': token
+  }})
         .then(function (response) {
           setInvalid(response.data)
         })

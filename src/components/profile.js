@@ -15,7 +15,10 @@ export default function Profile() {
    useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
     () => {
       axios
-      .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+      .get(`http://127.0.0.1:8000/getuser/${user_id}`,{headers:{
+     
+        'Authorization': token
+    }})
       .then(function (response) {
         setFormValues(response.data)
       })
