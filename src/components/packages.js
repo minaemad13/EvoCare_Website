@@ -19,8 +19,8 @@ function Packages(sv_id) {
             <div className="container cont">
                 <div className="row justify-content-center">
                     <div className="col-md-8 text-center">
-                        <h3 className="mb-3">Packages available</h3>
-                        <h6 className="subtitle font-weight-normal">With EvoCare we offer 100% satisafaction</h6>
+                        <h3 className="mb-3 font-bold text-white">Packages available</h3>
+                        <h6 className="subtitle  text-light font-weight-normal">With EvoCare we offer 100% satisafaction</h6>
                     </div>
                 </div>
                 <div className="row mt-4">
