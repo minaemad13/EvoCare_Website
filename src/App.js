@@ -40,7 +40,6 @@ export default function App() {
             <Route path={"/nano"} exact component={nanoCeramic} />
             <Route path={"/polish"} exact component={polish} />
             <Route path={"/windowfilm"} exact component={windowFilm} />
-            <Route path={"/packages"} exact component={packages} />
           </Switch>
           <Footer />
         </Router>
