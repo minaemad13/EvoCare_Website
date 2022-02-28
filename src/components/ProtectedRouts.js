@@ -4,7 +4,7 @@ const ProtectedRouts = ({ component: Component, ...rest }) => {
       const isAuthenticated = localStorage.getItem("token");
     
     
-    console.log(isAuthenticated )
+    
 
     return (
     <Route {...rest}

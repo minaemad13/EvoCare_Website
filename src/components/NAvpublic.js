@@ -1,16 +1,78 @@
 import { Link as L } from 'react-router-dom';
 import { Link } from 'react-scroll';
-import { useState } from 'react';
+import jwt from "jwt-decode"
+import { useEffect, useState } from 'react';
+import axios from "axios";
+// import { HashLink } from 'react-router-hash-link';
+
+// import { HashLink as Linkh } from 'react-router-hash-link';
 
 
 
 
 
 
-const NAvpublic = () => {
-  const [isAuthenticated,setIsAuthenticated]=useState(
-  localStorage.getItem("token")
-  )
+
+
+const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
+  const [name,setName] = useState("")
+
+  useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
+    () => {
+      const token= localStorage.getItem("token");
+      const user = jwt(token);
+      const user_id=user.id 
+    
+      axios
+      .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+      .then(function (response) {
+        console.log(response.data.First_Name)
+        setName(response.data.First_Name)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    [],
+  );
+
+
+
+
+  // const handelprofile=()=>{
+  //   const token= localStorage.getItem("token");
+  //   const user = jwt(token);
+  //   const user_id=user.id 
+  //   const name=""
+  //   axios
+  //   .get(`http://127.0.0.1:8000/getuser/${user_id}`)
+  //   .then(function (response) {
+  //     console.log(response.data.First_Name)
+  //     setName(response.data.First_Name)
+    
+      
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //   });
+   
+
+  // }
+
+
+
+
+  const scrollTop=()=>{
+    window.scrollTo(0, 0)
+
+  }
+
+  const handellogout = ()=>{
+    localStorage.removeItem('token');
+    setIsAuthenticated(null)
+  }
+
+
 
   
   const handelScroll = e => {
@@ -38,10 +100,12 @@ const NAvpublic = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
-                <L className="nav-link active" to ="/"> Home</L>
+             
+                <L className="nav-link active" to ="/" onClick={scrollTop}> Home</L>
               </li>
+        
               <li className="nav-item">
-                <Link onClick={() => handelScroll}
+              <Link onClick={() => handelScroll}
                   to="services"
                   activeClass="active"
 
@@ -55,6 +119,8 @@ const NAvpublic = () => {
                   Services
                 </Link>
 
+              
+
               </li>
               <li className="nav-item">
                 <L  className="nav-link" to={"/about"}>About Us</L>
@@ -66,12 +132,22 @@ const NAvpublic = () => {
             <form className="d-flex" >
 
 
-              {isAuthenticated?<ul>
-                <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> 
-                <li className="nav-item">
-                   <button className=" btn nav-link" >Logout</button>
+              {isAuthenticated?
+              <> 
+              <ul className='navbar-nav mx-auto'>
+                <li className='nav-item'>
+                  <L to = "/book">
+              <button className="btn btn-sm btn-outline-warning ">Book Appoinement</button>
+              </L>
+              </li>
+      
+                <li className="nav-item " onClick={handellogout} >
+                 <L className="nav-link" to="/login">Logout</L>
                 </li>
-              </ul>
+                <li className="nav-item  ">
+                <L className="nav-link "to ="/profile" >{name} </L>
+                </li>
+              </ul ></>
                :<ul className='navbar-nav mx-auto'>
                 <li className="nav-item">
                   <L className="nav-link" to="/register">ٌRegister</L>
@@ -79,15 +155,6 @@ const NAvpublic = () => {
                 <li className="nav-item">
                   <L className="nav-link" to="/login">Login</L>
                 </li></ul>}
-              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
-              {/* <ul className='navbar-nav mx-auto'>
-                <li className="nav-item">
-                  <L className="nav-link" to="/register">ٌRegister</L>
-                </li>
-                <li className="nav-item">
-                  <L className="nav-link" to="/login">Login</L>
-                </li></ul> */}
-              {/* <button className="btn btn-sm btn-outline-warning " type="button">Book Appoinement</button> */}
 
             </form>
 

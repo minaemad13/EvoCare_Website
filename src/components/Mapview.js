@@ -13,8 +13,8 @@ const MapContainer = () => {
     {
       name: "zamalk",
       location: { 
-        lat: 30.060823126594073,
-        lng: 31.218831838906784
+        lat: 29.97350352735607,
+        lng:31.482694203041746
       }}]
   const mapStyles = {        
     height: "200px",
@@ -22,7 +22,7 @@ const MapContainer = () => {
   
   const defaultCenter = {
     // 30.0444766843023, 31.235804443463177
-    lat: 30.060823126594073, lng: 31.218831838906784
+    lat:  29.97350352735607, lng: 31.482694203041746
   }
   
   return (

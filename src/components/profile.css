@@ -1,5 +1,5 @@
 body1 {
-  background: rgb(24, 23, 23);
+  background-color: #1C1C1C;
 }
 .emp-profile {
   padding: 3%;
@@ -12,7 +12,7 @@ body1 {
   color: #333;
 }
 .profile-head h6 {
-  color: #0062cc;
+  color: #EFB533;
 }
 .profile-edit-btn {
   border: none;
@@ -42,7 +42,7 @@ body1 {
 }
 .profile-head .nav-tabs .nav-link.active {
   border: none;
-  border-bottom: 2px solid #0062cc;
+  border-bottom: 5px solid #EFB533;
 }
 .profile-work {
   padding: 14%;
@@ -68,5 +68,5 @@ body1 {
 }
 .profile-tab p {
   font-weight: 600;
-  color: #0062cc;
+  color: #EFB533;
 }

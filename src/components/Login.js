@@ -7,9 +7,12 @@ import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import FloatingWhatsApp from "react-floating-whatsapp";
+import jwt from 'jwt-decode'
+import {useHistory} from 'react-router-dom';
 
-console.log(localStorage.getItem("email"));
-export default function Login() {
+//console.log(localStorage.getItem("email"));
+export default function Login({setIsAuthenticated}) {
+  const history = useHistory()
   const initialValues = { email: "", password: "" };
   const [FormValues, setFormValues] = useState(initialValues);
   const [FormErrors, setFormErrors] = useState({});
@@ -27,10 +30,7 @@ export default function Login() {
     setFormValues({ ...FormValues, [prop]: event.target.value });
   };
 
-  // React.useEffect(() => {
-  //   localStorage.setItem("Form", JSON.stringify(FormValues));
-  // }, [values]);
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(FormValues));
@@ -48,9 +48,15 @@ export default function Login() {
                 else{
                     setlogMessage(response.request.message)
                 };
-        localStorage.setItem("email", FormValues.email);
-        localStorage.setItem("password", FormValues.password);
-        localStorage.setItem("user_id", response.data.user_id);
+
+      const token = response.data.jwt;
+      const user = jwt(token);
+     const  user_id=user.id // decode your token here
+      localStorage.setItem('token', token);
+      setIsAuthenticated(user);
+      history.push('/'); 
+      
+      
       })
       .catch(function (error) {
         console.log(error);
@@ -65,6 +71,7 @@ export default function Login() {
     const { name, value } = e.target;
     setFormValues({ ...FormValues, [name]: value });
     console.log(FormValues);
+
   };
 
   useEffect(() => {

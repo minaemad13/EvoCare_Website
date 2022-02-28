@@ -6,6 +6,7 @@ import axios from 'axios';
 import moment from 'moment'
 import background from "./carbon2.jpg"
 import { useLocation } from "react-router-dom";
+import jwt from "jwt-decode"
 import { FaCalendarCheck, FaMoneyCheck } from 'react-icons/fa';
 
 import emailjs from "emailjs-com"
@@ -37,7 +38,9 @@ const Book = () => {
   var Tax = 50
 
   // it will handel 
-  const userid = localStorage.getItem("user_id");
+  const token= localStorage.getItem("token");
+  const user = jwt(token);
+  const  user_id=user.id 
   // const location = useLocation();
   // useEffect(() => {
   //    setPackage_price(location.state.price);
@@ -61,9 +64,9 @@ const Book = () => {
     //console.log(inv.Date_Time)
     myinvalid.push({ start: inv.Date_Time, end: inv.Date_Time })
   });
-
+console.log(myinvalid)
   const handleSubmit = (e) => {   // take the form values and selected date and time from calender and send it to backend using post request 
-    e.preventDefault();
+   
     emailjs.sendForm("service_fh510hk",
       "template_mgopfxs", e.target,
       "user_Qdr9KNtFvRj7X19Pg2l5x").then((res) => { console.log("OK") }).catch(err => {
@@ -71,7 +74,7 @@ const Book = () => {
       })
     axios.post('http://127.0.0.1:8000/book', {
       "Date_Time": selected,
-      "User_Id": userid,
+      "User_Id": user_id,
       "First_Name": FormData["First_Name"],
       "Last_Name": FormData["Last_Name"],
       "Email": FormData["Email"],
@@ -83,7 +86,7 @@ const Book = () => {
       .catch(function (error) {
         console.log(error);
       });
-
+    
     axios.get('http://127.0.0.1:8000/invalid/')
         .then(function (response) {
           setInvalid(response.data)
