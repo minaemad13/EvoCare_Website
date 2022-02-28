@@ -16,6 +16,7 @@ import nanoCeramic from './components/nanoCeramic';
 import polish from './components/polish';
 import windowFilm from './components/windowFilm';
 import ScrollToTop from "./components/ScrollToTop";
+import packages from './components/packages';
 import ProtectedRouts from "./components/ProtectedRouts"
 import { useState,useEffect } from "react";
 import NAvpublic from "./components/NAvpublic";
