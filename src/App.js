@@ -17,6 +17,7 @@ import nanoCeramic from './components/nanoCeramic';
 import polish from './components/polish';
 import windowFilm from './components/windowFilm';
 import ScrollToTop from "./components/ScrollToTop";
+import packages from './components/packages';
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
             <Route path={"/nano"} exact component={nanoCeramic} />
             <Route path={"/polish"} exact component={polish} />
             <Route path={"/windowfilm"} exact component={windowFilm} />
+            <Route path={"/packages"} exact component={packages} />
           </Switch>
           <Footer />
         </Router>

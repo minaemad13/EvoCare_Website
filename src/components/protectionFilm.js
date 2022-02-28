@@ -4,15 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Carousel from "./service_carousel";
+import Packages from "./packages";
 const protectionFilm = () => {
 
-    function ScrollToTopOnMount() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return null;
-}
     return (
         <div className="bg py-5 text-center" id='body'>
             <div className="container cont py-5">
@@ -28,70 +22,7 @@ const protectionFilm = () => {
                 </div>
             </div>
 
-            <div className="container cont justify-content-center">
-                <div className="row">
-
-
-                    <div className='col col-md-4 ' >
-                        <div className="card border-warning" id='card'>
-
-                            <div className="card-body">
-                                <h5 className="cbs-package-name">Paint Protection Film </h5>
-                                <h2>15$</h2>
-                                <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                    <li>High Gloss Ppf Tpu Clear </li>
-                                    <li>Towel Hand Dry</li>
-                                    <li>Wheel Shine</li>
-                                </ul>
-                                <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                    <div className='col col-md-4 ' >
-                        <div className="card border-warning" id='card'>
-
-                            <div className="card-body">
-                                <h5 className="cbs-package-name">Basic Hand Wash</h5>
-                                <h2>15$</h2>
-                                <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                    <li>Exterior Hand Wash</li>
-                                    <li>Towel Hand Dry</li>
-                                    <li>Wheel Shine</li>
-                                </ul>
-                                <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                            </div>
-                        </div>
-                    </div>
-
-                   
-                    <div className='col col-md-4 ' >
-                        <div className="card border-warning" id='card'>
-
-                            <div className="card-body">
-                                <h5 className="cbs-package-name">Basic Hand Wash</h5>
-                                <h2>15$</h2>
-                                <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                    <li>Exterior Hand Wash</li>
-                                    <li>Towel Hand Dry</li>
-                                    <li>Wheel Shine</li>
-                                </ul>
-                                <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-
-            </div>
+            <Packages service_id={1} />
 
         </div>
 

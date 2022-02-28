@@ -3,6 +3,7 @@ import "./polish.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import Carousel from "./service_carousel";
+import Packages from "./packages";
 function polish() {
     return (
         <div className="bgc py-5 text-center" id='bodyy'>
@@ -20,65 +21,7 @@ function polish() {
             </div>
         </div>
 
-        <div className="container cont justify-content-center">
-            <div className="row">
-            <div className='col col-md-4 ' >
-                    <div className="card border-warning" id='card'>
-
-                        <div className="card-body">
-                            <h5 className="cbs-package-name">Paint Protection Film </h5>
-                            <h2>15$</h2>
-                            <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                <li>High Gloss Ppf Tpu Clear </li>
-                                <li>Towel Hand Dry</li>
-                                <li>Wheel Shine</li>
-                            </ul>
-                            <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                        </div>
-                    </div>
-                </div>
-                
-                <div className='col col-md-4 ' >
-                    <div className="card border-warning" id='card'>
-
-                        <div className="card-body">
-                            <h5 className="cbs-package-name">Paint Protection Film </h5>
-                            <h2>25$</h2>
-                            <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                <li>High Gloss Ppf Tpu Clear </li>
-                                <li>Towel Hand Dry</li>
-                                <li>Wheel Shine</li>
-                            </ul>
-                            <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div className='col col-md-4 ' >
-                    <div className="card border-warning" id='cardd'>
-
-                        <div className="card-body">
-                            <h5 className="cbs-package-name">Paint Protection Film </h5>
-                            <h2>30$</h2>
-                            <ul className="cbs-package-service-list list cbs-list-reset cbs-clear-fix">
-                                <li>High Gloss Ppf Tpu Clear </li>
-                                <li>Towel Hand Dry</li>
-                                <li>Wheel Shine</li>
-                            </ul>
-                            <a href="#" className="btn btn-outline-warning">Book Now</a>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
-        </div>
+        <Packages service_id={2} />
 
     </div>
 
