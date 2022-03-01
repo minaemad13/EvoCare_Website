@@ -19,6 +19,7 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
 
   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
     () => {
+      if (isAuthenticated){
       const token= localStorage.getItem("token");
       const user = jwt(token);
       const user_id=user.id 
@@ -31,33 +32,13 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      });}
     },
-    [],
+    [isAuthenticated],
   );
 
 
 
-
-  // const handelprofile=()=>{
-  //   const token= localStorage.getItem("token");
-  //   const user = jwt(token);
-  //   const user_id=user.id 
-  //   const name=""
-  //   axios
-  //   .get(`http://127.0.0.1:8000/getuser/${user_id}`)
-  //   .then(function (response) {
-  //     console.log(response.data.First_Name)
-  //     setName(response.data.First_Name)
-    
-      
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-   
-
-  // }
 
 
 
@@ -125,6 +106,10 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
               <li className="nav-item">
                 <L  className="nav-link" to={"/about"}>About Us</L>
               </li>
+              {isAuthenticated?
+              <li className="nav-item">
+              <L  className="nav-link" to={"/book"}>Book Appoinement</L>
+            </li>:<></>}
 
             </ul>
 
@@ -135,12 +120,6 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
               {isAuthenticated?
               <> 
               <ul className='navbar-nav mx-auto'>
-                <li className='nav-item'>
-                  <L to = "/book">
-              <button className="btn btn-sm btn-outline-warning ">Book Appoinement</button>
-              </L>
-              </li>
-      
                 <li className="nav-item " onClick={handellogout} >
                  <L className="nav-link" to="/login">Logout</L>
                 </li>
