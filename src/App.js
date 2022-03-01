@@ -21,7 +21,7 @@ import ProtectedRouts from "./components/ProtectedRouts"
 import { useState,useEffect } from "react";
 import NAvpublic from "./components/NAvpublic";
 import jwt from "jwt-decode"
-
+import BookingCheckout from './components/payment-action';
 export default function App() {
  
   const [isAuthenticated,setIsAuthenticated]=useState(null)
@@ -64,6 +64,7 @@ export default function App() {
             <Route path={"/nano"} exact component={nanoCeramic} />
             <Route path={"/polish"} exact component={polish} />
             <Route path={"/windowfilm"} exact component={windowFilm} />
+              <Route path={"/pay"} exact component={BookingCheckout} />
           </Switch>
           <Footer />
         </Router>
