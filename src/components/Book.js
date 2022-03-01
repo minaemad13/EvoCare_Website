@@ -41,11 +41,11 @@ const Book = () => {
   const token= localStorage.getItem("token");
   const user = jwt(token);
   const  user_id=user.id 
-  // const location = useLocation();
-  // useEffect(() => {
-  //    setPackage_price(location.state.price);
-  //    setPackage_price(location.state.id);
-  // }, [location]);
+  const location = useLocation();
+  useEffect(() => {
+     setPackage_price(location.state.packagePrice);
+     setPackage_id(location.state.packageId);
+  }, [location]);
 
   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
     () => {
@@ -82,6 +82,8 @@ console.log(myinvalid)
         "Last_Name": FormData["Last_Name"],
         "Email": FormData["Email"],
         "Phone": FormData["Phone"],
+        "package_price":package_price,
+        "package_id":package_id,
       }
     axios.post('http://127.0.0.1:8000/book', data1,{
       headers: {
@@ -173,7 +175,7 @@ console.log(myinvalid)
   // backgroundImage:`url(${background})` , backgroundrepeat: "no-repeat" 
   return (
     <div style={{ backgroundColor: "#1C1C1C" }}>
-      <div className='container'>
+      <div className='container' style={{backgroundColor:"#1C1C1C"}}>
         <h1 className='text-center' style={{ color: "orange" }}>Date and Time</h1>
         <div className='m-5' style={{ border: "2 orange solid" }}>
           <Datepicker  //using the DatePicker Component using mobiscroll that can take Date and Time
@@ -192,7 +194,7 @@ console.log(myinvalid)
           />
         </div>
         <hr style={{ color: "orange", height: "2px" }}></hr>
-        <div className="container ">
+        <div className="container "style={{backgroundColor:"#1C1C1C"}}>
           <div className='row'>
             <div className='col-6'>
               <div className='row' style={{ marginTop: "50px" }}>
@@ -205,7 +207,7 @@ console.log(myinvalid)
                 <FaMoneyCheck size={30} color='orange' />
                 <br></br>
                 <p style={{ color: 'orange' }}>Reservation Tax</p>
-                <h4 style={{ color: 'orange' }}>{Tax} EGP</h4>
+                <h4 style={{ color: 'orange' }}>{Tax} + {package_price} EGP</h4>
               </div>
             </div>
             {/* backgroundColor: "black", */}

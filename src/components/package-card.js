@@ -7,7 +7,7 @@ function PackageCard({packs,service}) {
     const bookPackage = event => {
        history.push({
            pathname: '/book',
-           state: { packageName: packs.id, packagePrice: packs.pck_price}
+           state: { packageId: packs.id, packagePrice: packs.pck_price}
        });
     };
     return (
