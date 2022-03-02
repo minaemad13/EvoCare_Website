@@ -125,8 +125,7 @@ export default function Edit() {
 
   return (
     <div className="body1">
-      <br />
-      <br />
+     
       <div className="container emp-profile">
         <div className="row">
           <div className="col-md-6">

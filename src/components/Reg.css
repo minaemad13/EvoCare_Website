@@ -7,10 +7,10 @@
   padding: 50px 0;
 }
 .banner-sec {
-  background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg)
-    no-repeat left bottom;
+  background:url("../resources/0a3b0d36-b78c-47d6-afcb-3f4fa2003af4.jpeg") no-repeat left bottom; 
+
   background-size: cover;
-  min-height: 500px;
+  min-height: 600px;
   border-radius: 0 10px 10px 0;
   padding: 0;
 }

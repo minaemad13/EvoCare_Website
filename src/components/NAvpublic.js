@@ -66,8 +66,8 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
     });
   }
   return (
-    <div className='container'>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+    <div className='fluid-container'>
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark static-top">
         <div className="container-fluid">
           <Link class="navbar-brand" to="/">
 
@@ -75,7 +75,7 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
 
           </Link>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" id ="bt"type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
@@ -114,12 +114,14 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
             </ul>
 
 
-            <form className="d-flex" >
+            <form className="" >
 
 
               {isAuthenticated?
               <> 
               <ul className='navbar-nav mx-auto'>
+
+      
                 <li className="nav-item " onClick={handellogout} >
                  <L className="nav-link" to="/login">Logout</L>
                 </li>
