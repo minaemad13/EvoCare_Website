@@ -35,7 +35,7 @@ const Book = () => {
     PhoneErr: "",
   });
   var myinvalid = []
-  var Tax = 50
+
 
   // it will handel 
   const token= localStorage.getItem("token");
@@ -82,7 +82,7 @@ console.log(myinvalid)
         "Last_Name": FormData["Last_Name"],
         "Email": FormData["Email"],
         "Phone": FormData["Phone"],
-        "package_price":package_price,
+        "package_price":package_price*0.20,
         "package_id":package_id,
       }
     axios.post('http://127.0.0.1:8000/book', data1,{
@@ -207,7 +207,7 @@ console.log(myinvalid)
                 <FaMoneyCheck size={30} color='orange' />
                 <br></br>
                 <p style={{ color: 'orange' }}>Reservation Tax</p>
-                <h4 style={{ color: 'orange' }}>{Tax} + {package_price} EGP</h4>
+                <h4 style={{ color: 'orange' }}>{package_price*0.20} EGP</h4>
               </div>
             </div>
             {/* backgroundColor: "black", */}
