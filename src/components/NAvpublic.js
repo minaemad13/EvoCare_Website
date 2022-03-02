@@ -106,10 +106,6 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
               <li className="nav-item">
                 <L  className="nav-link" to={"/about"}>About Us</L>
               </li>
-              {isAuthenticated?
-              <li className="nav-item">
-              <L  className="nav-link" to={"/book"}>Book Appoinement</L>
-            </li>:<></>}
 
             </ul>
 
