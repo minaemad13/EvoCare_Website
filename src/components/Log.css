@@ -7,12 +7,17 @@
   padding: 50px 0;
 } 
 .banner-sec {
-  background: url(https://scontent.fcai20-6.fna.fbcdn.net/v/t1.6435-9/53117829_349679565758321_4213667945953361920_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=j-U-MHNpodYAX90yO55&_nc_ht=scontent.fcai20-6.fna&oh=00_AT_7f-mXBuar09F2w0AVxKJS5Hcl6IqWpMm5WovJnw7U5Q&oe=6236259A)
-    no-repeat left bottom;
+
+
+  background:url("../resources/0a3b0d36-b78c-47d6-afcb-3f4fa2003af4.jpeg") no-repeat left bottom; 
+   /* url(https://scontent.fcai20-6.fna.fbcdn.net/v/t1.6435-9/53117829_349679565758321_4213667945953361920_n.png?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=j-U-MHNpodYAX90yO55&_nc_ht=scontent.fcai20-6.fna&oh=00_AT_7f-mXBuar09F2w0AVxKJS5Hcl6IqWpMm5WovJnw7U5Q&oe=6236259A) */ 
+    /* no-repeat left bottom; */
   background-size: cover;
-  min-height: 500px;
+  min-height: 600px;
   border-radius: 0 10px 10px 0;
   padding: 0;
+
+
 }
 .container {
   background: #fff;

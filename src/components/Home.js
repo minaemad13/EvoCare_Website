@@ -6,6 +6,8 @@ import Feedback from "./Feedback";
 import Intro from "./Intro";
 import Info from "./Info";
 import Map from "./Map";
+import ScrollToTop from "../components/ScrollToTop";
+import FloatingWhatsApp from "react-floating-whatsapp";
 
 const Home = () => {
     return (
@@ -13,7 +15,7 @@ const Home = () => {
             
             <br /><br /><br /><br /> 
             {/* <Carosel /> */}
-             <br /><br /><br />
+            
 
             <Intro/>
             
@@ -23,6 +25,16 @@ const Home = () => {
             {/* <Info/> */}
             <Feedback/>
             <Map/>
+            <a>
+          <FloatingWhatsApp
+            phoneNumber="+20 1204822114"
+            accountName="Mariam"
+            allowClickAway
+            notification
+            notificationDelay={60000}
+            notificationSound
+          />
+        </a>
         </div>);
 }
 
