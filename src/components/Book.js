@@ -42,10 +42,18 @@ const Book = () => {
   const user = jwt(token);
   const  user_id=user.id 
   const location = useLocation();
+  
   useEffect(() => {
-     setPackage_price(location.state.packagePrice);
-     setPackage_id(location.state.packageId);
-  }, [location]);
+     
+  if (location.state.packageId){
+    setPackage_price(location.state.packagePrice);
+    setPackage_id(location.state.packageId);
+  }
+  else{
+    setPackage_price(100);
+    setPackage_id(0);
+  }
+  }, []);
 
   useEffect(  // get the booked date from database when the value of selected date changed useing react hook on update  
     () => {
@@ -69,7 +77,7 @@ const Book = () => {
   });
 console.log(myinvalid)
   const handleSubmit = (e) => {   // take the form values and selected date and time from calender and send it to backend using post request 
-   
+    e.preventDefault();
     emailjs.sendForm("service_fh510hk",
       "template_mgopfxs", e.target,
       "user_Qdr9KNtFvRj7X19Pg2l5x").then((res) => { console.log("OK") }).catch(err => {

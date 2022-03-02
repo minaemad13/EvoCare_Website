@@ -9,7 +9,7 @@ function nanoCeramic() {
         <div className="bg py-5 text-center"id='body'>
 
         <div className="container cont py-5">
-            <Carousel service_id={3} />
+            <Carousel service_id={5} />
 
             <h2 className=" text-center mb-2">Nano Ceramic</h2>
             <hr className="hr"></hr>
@@ -22,7 +22,7 @@ function nanoCeramic() {
             </div>
         </div>
 
-        <Packages service_id={3} />
+        <Packages service_id={5} />
 
     </div>
 

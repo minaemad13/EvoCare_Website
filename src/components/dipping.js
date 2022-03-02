@@ -9,7 +9,7 @@ function dipping() {
         <div className="bg py-5 text-center"id='body'>
 
             <div className="container cont py-5">
-                <Carousel service_id={5} />
+                <Carousel service_id={3} />
 
                 <h2 className=" text-center mb-2">Dipping</h2>
                 <hr className="hr"></hr>
@@ -22,7 +22,7 @@ function dipping() {
                 </div>
             </div>
 
-            <Packages service_id={5} />
+            <Packages service_id={3} />
 
         </div>
 
