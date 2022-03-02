@@ -52,7 +52,7 @@ export default function App() {
             <Route path={"/register"} exact component={Register} />
             <ProtectedRouts path={"/profile"} exact component={profile} />
             {/* <Route path={"/profile"} exact component={profile} /> */}
-            <Route path={"/edit"} exact component={edit} />
+            <ProtectedRouts  path={"/edit"} exact component={edit} />
             <ProtectedRouts path={'/book'} exact component={Book} />
             <Route path={"/login"} exact render={
   (props) => <Login {...props} setIsAuthenticated={setIsAuthenticated}/>
@@ -65,7 +65,7 @@ export default function App() {
             <Route path={"/polish"} exact component={polish} />
             <Route path={"/windowfilm"} exact component={windowFilm} />
           </Switch>
-          <Footer />
+          <Footer isAuthenticated={isAuthenticated} />
         </Router>
       </div>
     </>

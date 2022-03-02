@@ -99,9 +99,9 @@ export default function Login({setIsAuthenticated}) {
   };
   return (
     <>
-    <br/><br/>
+    
       <section className="login-block">
-        <div className="container">
+        <div className="container mx-5">
           <div className="row">
             <div className="col-md-4 login-sec">
               <h2 className="text-center">Login </h2>
@@ -189,8 +189,12 @@ export default function Login({setIsAuthenticated}) {
               <br />
             </div>
 
-            <div className="col-md-8 banner-sec">
+            <div className="col-md-8 content  d-none d-md-block">
+            <img src={require('../resources/logo.png')} alt="" class="img-fluid" style={{width:"890px",height:"900px"}}/>
+            {/* <img src={require("../resources/8bdd1dd1-f7bb-4873-89f0-0182e3885254.jpeg")} alt="intro" className="img-fluid"  style={{width:"850px",height:"600px"}}/> */}
+              
               <div
+              
                 id="carouselExampleIndicators"
                 className="carousel slide"
                 data-ride="carousel"
@@ -202,7 +206,10 @@ export default function Login({setIsAuthenticated}) {
                   <div className="carousel-item">
                     <img
                       className="d-block img-fluid"
-                      src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
+                      src={require("../resources/handwash.jpg")} 
+
+
+                      // src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg"
                       alt="First slide"
                     />
                   </div>
@@ -211,7 +218,7 @@ export default function Login({setIsAuthenticated}) {
             </div>
           </div>
         </div>
-        <a>
+        {/* <a>
           <FloatingWhatsApp
             phoneNumber="+20 1012769465"
             accountName="Esraa Bahaa"
@@ -220,7 +227,7 @@ export default function Login({setIsAuthenticated}) {
             notificationDelay={60000}
             notificationSound
           />
-        </a>
+        </a> */}
       </section>
       
     </>

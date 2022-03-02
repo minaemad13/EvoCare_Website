@@ -114,9 +114,9 @@ export default function Login() {
   // const [selectedDate, setSelectedDate] = useState(null);
   return (
     <>
-    <br/> <br/>
+    
       <section className="login-block">
-        <div className="container">
+        <div className="container mx-5">
           <div className="row">
             <div className="col-md-4 login-sec">
               <h2 className="text-center">Register Now </h2>
@@ -279,8 +279,12 @@ export default function Login() {
                 </div>
               </div>
             </div>
-            <div className="col-md-8 banner-sec">
-              <div
+            <div className="col-md-8  d-none d-md-block content" >
+              <div  >
+              <img src={require('../resources/logo.png')} alt="" class="img-fluid" style={{width:"890px",height:"900px"}}/>
+              {/* <img src={require("../resources/8bdd1dd1-f7bb-4873-89f0-0182e3885254.jpeg")} alt="intro" className="img-fluid"  style={{width:"850px",height:"900px"}}/> */}
+              </div>
+              {/* <div
                 id="carouselExampleIndicators"
                 className="carousel slide"
                 data-ride="carousel"
@@ -297,11 +301,11 @@ export default function Login() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        <a>
+        {/* <a>
           <FloatingWhatsApp
             phoneNumber="+20 1204822114"
             accountName="Mariam"
@@ -310,7 +314,7 @@ export default function Login() {
             notificationDelay={60000}
             notificationSound
           />
-        </a>
+        </a> */}
       </section>
     </>
   );
