@@ -34,7 +34,7 @@ export default ({service_id}) => {
                 {images && images.filter(image => image.sv_id === service_id).map(image => {
                         return (
                             <div>
-                                {image.image &&<img alt={image.alt} src={`http://127.0.0.1:8000${image.image}`}/>}
+                                {image.image &&<img  alt={image.alt} src={`http://127.0.0.1:8000${image.image}`}/>}
                                 {/*render legend when title is valid*/}
                                 {image.title && <p className="legend">{image.title}</p>}
                             </div>)

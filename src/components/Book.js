@@ -8,6 +8,7 @@ import background from "./carbon2.jpg"
 import { useLocation } from "react-router-dom";
 import jwt from "jwt-decode"
 import { FaCalendarCheck, FaMoneyCheck } from 'react-icons/fa';
+import Carousel from "./service_carousel";
 
 import emailjs from "emailjs-com"
 
@@ -195,9 +196,10 @@ console.log(myinvalid)
   // backgroundImage:`url(${background})` , backgroundrepeat: "no-repeat" 
   return (
     <div style={{ backgroundColor: "#1C1C1C" }}>
+       <Carousel service_id={7} />
       <div className='container' style={{backgroundColor:"#1C1C1C"}}>
-        <h1 className='text-center' style={{ color: "orange" }}>Date and Time</h1>
-        <div className='m-5' style={{ border: "2 orange solid" }}>
+        <h1 className='text-center' style={{ color: "#efb533" }}>Date and Time</h1>
+        <div className='m-5' style={{ border: "2 #efb533 solid" }}>
           <Datepicker  //using the DatePicker Component using mobiscroll that can take Date and Time
             controls={['calendar', 'timegrid']}
             min={date}
@@ -213,26 +215,47 @@ console.log(myinvalid)
             onChange={onSelectedChange}
           />
         </div>
-        <hr style={{ color: "orange", height: "2px" }}></hr>
+        <hr style={{ color: "#efb533", height: "2px" }}></hr>
         <div className="container "style={{backgroundColor:"#1C1C1C"}}>
-          <div className='row'>
+        <div className='row'>
             <div className='col-6 text-center' >
               <div className='row' style={{ marginTop: "50px" }}>
+                <FaCalendarCheck size={30} color='#efb533' />
+                <br></br>
+                <p style={{ color: '#efb533' }}>Booking Date and Time </p>
+                <h4 style={{ color: "#efb533" }}> {selected}</h4>
+              </div>
+              <div className='row' style={{ marginTop: "50px" }}>
+                <FaMoneyCheck size={30} color='#efb533' />
+                <br></br>
+                <p style={{ color: '#efb533' }}>Reservation Tax</p>
+                <h4 style={{ color: '#efb533' }}>{package_price*0.20} EGP</h4>
+              </div>
+          {/* <div className='row'>
+            <div className='col-6 text-center' >
+              <div className='row' style={{ marginTop: "50px" }}>
+                <div className='col-6'>
                 <FaCalendarCheck size={30} color='orange' />
                 <br></br>
                 <p style={{ color: 'orange' }}>Booking Date and Time </p>
+                </div>
+                <div className='col-6'>
                 <h4 style={{ color: "orange" }}> {selected}</h4>
+                </div>
+               
+                
+                
               </div>
               <div className='row' style={{ marginTop: "50px" }}>
                 <FaMoneyCheck size={30} color='orange' />
                 <br></br>
                 <p style={{ color: 'orange' }}>Reservation Tax</p>
                 <h4 style={{ color: 'orange' }}>{package_price*0.20} EGP</h4>
-              </div>
+              </div> */}
             </div>
             {/* backgroundColor: "black", */}
-            <div className='col-6' style={{ height: "400px" }}>
-              <h3 style={{ color: "white", marginTop: "20px" }}>Please input your <span style={{ color: "orange" }}>contact details</span></h3>
+            <div className='col-6 text-center' style={{ height: "400px" }}>
+              <h3 style={{ color: "white", marginTop: "20px" }}>Please input your <span style={{ color: "#efb533" }}>contact details</span></h3>
               <div style={{ marginTop: "50px" }}>
 
                 <form  method='POST'  onSubmit={(e) => handleSubmit(e)} >

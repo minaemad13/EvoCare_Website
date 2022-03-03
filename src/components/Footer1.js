@@ -71,7 +71,7 @@ const Footer = () => {
 
                     <div className="col-lg-4 col-md-8 col-sm-8 col-8">
                         <h6 className="">About US</h6>
-                        <p className="small text-muted pe-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, consectetur adipisicing elit.</p>
+                        <p className="small text-muted pe-3">  Evocare is Cairo's top center for Car film protection and NanoCeramics, hand car wash and detailing service.</p>
                        <Link to = "/" className='logo' onClick={scrollTop}>
                         <span><img src={require('../resources/logo.png')} alt="" className="d-inline-block img-responsive" /></span>
                         <span className='fw-bold'>Evo</span><span style={{ color: '#efb533' }}>Care</span>

@@ -8,13 +8,14 @@ import Info from "./Info";
 import Map from "./Map";
 import ScrollToTop from "../components/ScrollToTop";
 import FloatingWhatsApp from "react-floating-whatsapp";
+import Carousel from "./service_carousel";
 
 const Home = () => {
     return (
         <div className="content">
             
-            <br /><br /><br /><br /> 
-            {/* <Carosel /> */}
+            <Carousel service_id={7} />
+        
             
 
             <Intro/>

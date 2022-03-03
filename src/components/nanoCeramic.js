@@ -1,31 +1,78 @@
 import React from 'react';
-import "./nanoCeramic.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Carousel from "./service_carousel";
 import Packages from "./packages";
-function nanoCeramic() {
+import { RiRoadMapLine, RiTeamLine } from 'react-icons/ri'
+// import{FaCarAlt} from 'react-icons/fa's
+import nano from "../resources/nanoCeramic1.jpg"
+import { GiExtraTime } from 'react-icons/gi'
+import { AiOutlineCar } from 'react-icons/ai'
+const nanoCeramic = () => {
+
     return (
-        <div className="bg py-5 text-center"id='body'>
 
-        <div className="container cont py-5">
+
+        <div className="content">
+
+
+
+            <br /><br /><br /><br />
+            {/* <Carosel /> */}
             <Carousel service_id={5} />
+            <br /><br /><br />
 
-            <h2 className=" text-center mb-2">Nano Ceramic</h2>
-            <hr className="hr"></hr>
-            <div className="my-3 px-5 mx-5">
-                <p className="font">Save time and money</p>
-                <p className="my-3 px-5 mx-5 ">
-                    We are dedicated to providing quality service, customer satisfaction at a great value in multiple locations offering convenient hours  <br />
-                    Our goal is to provide our customers with the friendliest, most convenient hand car wash experience possible.
-                </p>
+
+
+            {/* <intro about service /> */}
+
+            <div className="p-5 " id='container'>
+                <div className="text-center">
+                    
+                    <h3 className="mb-3 font-bold text-white">NANO CERAMIC</h3>
+                    <hr className="hr " />
+                    <p className="font mb-5">Car wash & detailling service</p>
+                </div>
+
+
+
+
+
+                <div className="margin">
+                    <div className="row gx-5">
+                        
+                        <div className="col-lg-4 col-md-4 col-sm-12 mb-5">
+                        <img src={nano} alt="intro" className="img-fluid" style={{  width: "500",height: "500px" }}  />
+                        </div>
+                        
+                        <div className="col-lg-8 col-md-8 col-sm-12" style={{ fontSize: '15px' }}>
+                            
+                        <br /> <br /> <br /> 
+                            
+                            <p>
+                            EvoCar Nano car ceramic paint protection coating is the ultimate protection of your car paint and crystal gloss effect. Nano ceramic coating for car paints will prevent the appearance the potential scratches and stoneсhips, and decrease adverse effects of environmental conditions and chemicals. The car covered with our nano ceramic coating on cars is easy to clean from dirt, dust, resin, mud, and bird droppings.
+                            </p>
+                            <br />
+                            <p>
+                            nano ceramic coating for car paint protection stands out among the rest of nano car care products due to the longevity of its protecting abilities. Depending on the product, it could be from 3 to 5 years. Of course, regular car washing makes the protecting layer thinner. However, If you use EvoCar hydrophobic paint protection for cars you can be sure, that even after 100 washing, and for some products even after 250, your car paint will be still protected.
+                            </p>
+                            <br />
+                            <p>
+                            You can, also, use our nano car polish to protect other hard surface parts of the car such as headlights, tail indicators, and hard plastic trims.
+                            </p>
+                        
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
+            {/* packages/> */}
+            <Packages service_id={5} />
+
         </div>
-
-        <Packages service_id={5} />
-
-    </div>
-
 
 
 
