@@ -32,21 +32,21 @@ const Info = () => {
                    
                   </div>
                   <div className='col-lg-6 col-md-6 col-sm-6 p-5'>
-                  < RiRoadMapLine className='icons mb-3' />
+                  < GiExtraTime className='icons mb-3' />
                 
-                   <h5 className='formal'>CONVENIENCE</h5>
+                   <h5 className='formal'>GREAT VALUE</h5>
                    
 
-                 <p style={{ fontSize: '12px' }} className='formal'>We are dedicated to providing quality service, customer satisfaction at a great value in multiple locations offering convenient hours.</p>
+                 <p style={{ fontSize: '12px' }} className='formal'>We offer multiple services at a great value to meet your needs. We offer a premium service while saving your time and money.</p>
                    
                   </div>
                   <div className='col-lg-6 col-md-6 col-sm-6 p-5'>
-                  < RiTeamLine className='icons mb-3' />
+                  < AiOutlineCar className='icons mb-3' />
                 
-                   <h5 className='formal'>EXPERIENCED TEAM</h5>
+                   <h5 className='formal'>ORGANIC PRODUCTS</h5>
                    
 
-                 <p style={{ fontSize: '12px' }} className='formal'>Our crew members are all trained and skilled and fully equiped with equipment and supplies needed that we can deliver the best results.</p>
+                 <p style={{ fontSize: '12px' }} className='formal'>Our products are eco-friendly and interior products are all organic. We use less than a gallon of water with absolutely zero-waste.</p>
                    
                   </div>
               </div>
