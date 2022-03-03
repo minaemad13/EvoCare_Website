@@ -37,12 +37,6 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
     [isAuthenticated],
   );
 
-
-
-
-
-
-
   const scrollTop=()=>{
     window.scrollTo(0, 0)
 
