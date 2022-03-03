@@ -218,10 +218,17 @@ console.log(myinvalid)
           <div className='row'>
             <div className='col-6 text-center' >
               <div className='row' style={{ marginTop: "50px" }}>
+                <div className='col-6'>
                 <FaCalendarCheck size={30} color='orange' />
                 <br></br>
                 <p style={{ color: 'orange' }}>Booking Date and Time </p>
-                <h4 style={{ color: "orange" }}> {selected}</h4>
+                </div>
+                <div className='col-6'>
+                <h4 style={{ color: "orange" }}> 123</h4>
+                </div>
+               
+                
+                
               </div>
               <div className='row' style={{ marginTop: "50px" }}>
                 <FaMoneyCheck size={30} color='orange' />
