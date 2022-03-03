@@ -97,7 +97,7 @@ color: gray;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s linear;
-  }
+}
   #show {
     transition: .5s ease;
     opacity: 0;
