@@ -1,3 +1,6 @@
+body{
+    height:100%;
+}
 .content{
     background-color:rgb(24, 23, 23); 
      
@@ -195,6 +198,19 @@ font-size: 23px;
     border: none;
 
 }
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+/* .fitimg{
+    max-width: 100%;
+    max-height:630px ;
+   
+} */
+
+
+
 
 
 /* .navbar{
@@ -225,4 +241,8 @@ footer .logo{
 footer .logo:hover, footer .logo:focus {
     text-decoration: none;
     color: white;  
+}
+
+.nav-item:hover {
+    cursor: pointer;
 }

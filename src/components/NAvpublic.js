@@ -3,11 +3,15 @@ import { Link } from 'react-scroll';
 import jwt from "jwt-decode"
 import { useEffect, useState } from 'react';
 import axios from "axios";
+import {IoPersonCircleSharp} from 'react-icons/io5'
+import {IoHome} from 'react-icons/io5'
+import {MdOutlineMiscellaneousServices} from 'react-icons/md'
+import {RiTeamFill} from "react-icons/ri"
 // import { HashLink } from 'react-router-hash-link';
 
 // import { HashLink as Linkh } from 'react-router-hash-link';
 
-
+import { HashLink } from 'react-router-hash-link';
 
 
 
@@ -37,12 +41,6 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
     [isAuthenticated],
   );
 
-
-
-
-
-
-
   const scrollTop=()=>{
     window.scrollTo(0, 0)
 
@@ -56,15 +54,7 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
 
 
   
-  const handelScroll = e => {
-    e.preventDefault();
-    const main = this.main.current;
-    window.scrollTo({
-      top: main.offsetTop,
-      left: 0,
-      behavior: "instant"
-    });
-  }
+
   return (
     <div className='fluid-container'>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark static-top">
@@ -82,29 +72,23 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
             <ul className="navbar-nav mx-auto">
               <li className="nav-item">
              
-                <L className="nav-link active" to ="/" onClick={scrollTop}> Home</L>
+                <L className="nav-link active" to ="/" onClick={scrollTop}> <IoHome style={{color:"#efb533"}}/> Home</L>
               </li>
         
               <li className="nav-item">
-              <Link onClick={() => handelScroll}
-                  to="services"
-                  activeClass="active"
 
-                  offset={-70}
-
-                  duration={500}
-                  spy={true}
+                <HashLink 
 
                   className='nav-link'
-                >
-                  Services
-                </Link>
-
-              
-
+  to="/#services"
+  scroll={(el) => el.scrollIntoView({ behavior: 'smooth' })}
+>
+  <MdOutlineMiscellaneousServices style={{color:"#efb533"}}/>
+  Services
+</HashLink>
               </li>
               <li className="nav-item">
-                <L  className="nav-link" to={"/about"}>About Us</L>
+                <L  className="nav-link" to={"/about"}> <RiTeamFill style={{color:"#efb533"}}/>About Us</L>
               </li>
 
             </ul>
@@ -115,22 +99,30 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
 
               {isAuthenticated?
               <> 
-              <ul className='navbar-nav mx-auto'>
-
+              <ul className='navbar-nav mx-auto pe-3'>
+              
+              <li className="nav-item  ">
+                
+                <L className="nav-link "to ="/profile" >
+           {name}       <IoPersonCircleSharp style={{color:"#efb533"}}/></L>
+                </li>
       
+              
+
+                 <L className="nav-link" to="/login">
                 <li className="nav-item " onClick={handellogout} >
-                 <L className="nav-link" to="/login">Logout</L>
-                </li>
-                <li className="nav-item  ">
-                <L className="nav-link "to ="/profile" >{name} </L>
-                </li>
+
+                 <button type="button" className="btn btn-outline-warning btn-sm">Logout</button>
+                </li></L>
+               
+              
               </ul ></>
                :<ul className='navbar-nav mx-auto'>
                 <li className="nav-item">
-                  <L className="nav-link" to="/register">ٌRegister</L>
+                  <L className="nav-link" to="/register">ٌ    <button type="button" className="btn btn-outline-warning btn-sm">Register</button></L>
                 </li>
                 <li className="nav-item">
-                  <L className="nav-link" to="/login">Login</L>
+                  <L className="nav-link" to="/login">    <button type="button" className="btn btn-outline-warning btn-sm">Login</button></L>
                 </li></ul>}
 
             </form>
