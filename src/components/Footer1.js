@@ -65,11 +65,7 @@ const Footer = () => {
       }
 
     return (<>
-<<<<<<< HEAD
-        <footer className="content1 p-5" >
-=======
         <footer className="content1 p-5 ">
->>>>>>> bb014b311bdf7e964118d2d3908547e70d41a739
             <div className='container-fluid  ' >
                 <div className="row pt-3">
 
