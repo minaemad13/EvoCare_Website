@@ -65,7 +65,7 @@ const Footer = () => {
       }
 
     return (<>
-        <footer className="content1 p-5">
+        <footer className="content1 p-5" >
             <div className='container-fluid  ' >
                 <div className="row pt-3">
 

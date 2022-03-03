@@ -164,10 +164,10 @@ export default function Login({setIsAuthenticated}) {
                 </p>}
                 <br />
                 <div className="form-check">
-                  <label className="form-check-label">
+                  {/* <label className="form-check-label">
                     <input type="checkbox" className="form-check-input" />
                     <small>Remember Me</small>
-                  </label>
+                  </label> */}
                   <div className="d-grid gap-3 col-3 mx-auto">
                     <div className="float-left">
                       <button
