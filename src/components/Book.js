@@ -107,6 +107,8 @@ console.log(myinvalid)
       .catch(function (error) {
         console.log(error);
       });
+     
+     
     
     axios.get('http://127.0.0.1:8000/invalid/', {headers:{
      
@@ -114,6 +116,16 @@ console.log(myinvalid)
   }})
         .then(function (response) {
           setInvalid(response.data)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+        axios.post('http://127.0.0.1:8000/testpayment/')
+        .then(function (response) {
+         // console.log(response.data.url);
+          window.location.replace(response.data.url);
+          
         })
         .catch(function (error) {
           console.log(error);
@@ -204,7 +216,7 @@ console.log(myinvalid)
         <hr style={{ color: "orange", height: "2px" }}></hr>
         <div className="container "style={{backgroundColor:"#1C1C1C"}}>
           <div className='row'>
-            <div className='col-6'>
+            <div className='col-6 text-center' >
               <div className='row' style={{ marginTop: "50px" }}>
                 <FaCalendarCheck size={30} color='orange' />
                 <br></br>
@@ -223,7 +235,7 @@ console.log(myinvalid)
               <h3 style={{ color: "white", marginTop: "20px" }}>Please input your <span style={{ color: "orange" }}>contact details</span></h3>
               <div style={{ marginTop: "50px" }}>
 
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form  method='POST'  onSubmit={(e) => handleSubmit(e)} >
                   <div className='row'>
                     <div className="col-6">
 
