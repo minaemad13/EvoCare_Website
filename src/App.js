@@ -20,14 +20,10 @@ import packages from './components/packages';
 import ProtectedRouts from "./components/ProtectedRouts";
 import { useState,useEffect } from "react";
 import NAvpublic from "./components/NAvpublic";
-<<<<<<< HEAD
-import jwt from "jwt-decode";
-
-=======
 import jwt from "jwt-decode"
 import BookingCheckout from './components/payment-action';
 import HomePage from './components/HomePage'
->>>>>>> 7ae8322972b6b699340a126035b3fdfb313d8de4
+
 export default function App() {
  
   const [isAuthenticated,setIsAuthenticated]=useState(null)
