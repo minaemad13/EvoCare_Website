@@ -8,6 +8,7 @@ import Packages from "./packages";
 const protectionFilm = () => {
 
     return (
+
         <div className="bg py-5 text-center" id='body'>
             <div className="container cont py-5">
                 <Carousel service_id={1} />
