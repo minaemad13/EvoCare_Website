@@ -3,7 +3,11 @@
 }
 .emp-profile {
   padding: 3%;
+<<<<<<< HEAD
 
+=======
+  /* margin-top: 3%; */
+>>>>>>> bb014b311bdf7e964118d2d3908547e70d41a739
 
   border-radius: 0.5rem;
 }

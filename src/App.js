@@ -17,12 +17,13 @@ import polish from './components/polish';
 import windowFilm from './components/windowFilm';
 import ScrollToTop from "./components/ScrollToTop";
 import packages from './components/packages';
-import ProtectedRouts from "./components/ProtectedRouts"
+import ProtectedRouts from "./components/ProtectedRouts";
 import { useState,useEffect } from "react";
 import NAvpublic from "./components/NAvpublic";
 import jwt from "jwt-decode"
 import BookingCheckout from './components/payment-action';
 import HomePage from './components/HomePage'
+
 export default function App() {
  
   const [isAuthenticated,setIsAuthenticated]=useState(null)
