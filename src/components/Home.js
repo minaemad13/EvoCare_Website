@@ -22,7 +22,7 @@ const Home = () => {
             <Service/>
 
            
-            {/* <Info/> */}
+            <Info/>
             <Feedback/>
             <Map/>
             <a>
@@ -32,7 +32,7 @@ const Home = () => {
             allowClickAway
             notification
             notificationDelay={60000}
-            notificationSound
+            // notificationSound
           />
         </a>
         </div>);
