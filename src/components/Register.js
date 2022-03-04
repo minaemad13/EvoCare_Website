@@ -116,7 +116,7 @@ export default function Login() {
     <>
     
       <section className="login-block">
-        <div className="container mx-5">
+        <div className="container">
           <div className="row">
             <div className="col-md-4 login-sec">
               <h2 className="text-center">Register Now </h2>
@@ -247,7 +247,7 @@ export default function Login() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label for="floatingInput">Birthdate</label>
+                  <label for="floatingInput" style={{color:"white"}}>Birthdate</label>
                   <div className="input-group input-group-md mb-3">
                     <div class="form-floating mb-3">
                       <DatePickerComponent
@@ -257,25 +257,26 @@ export default function Login() {
                         onChange={handleChange}
                         showYearDropdown
                         scrollableMonthYearDropdown
+                        color="#efb533"
                       />
                       <p id="msg">{FormErrors.bdate}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="float-left">
+                <div className="float-left text-center">
                   <button
                     type="submit"
-                    className="btn btn-login btn-outline-danger"
+                    className="btn btn-login btn-outline-warning"
                   >
                     Register
                   </button>
                 </div>
               </form>
-              <div classNameName="card-footer">
-                <div classNameName="d-flex justify-content-center links">
+              <div className="card-footer text-center">
+                <div className="d-flex justify-content-center links" style={{color:"white"}}>
                   Already have an account?
-                  <Link to="/">Login</Link>
+                  <Link to="/login" style={{color:"#efb533"}}>Login</Link>
                 </div>
               </div>
             </div>

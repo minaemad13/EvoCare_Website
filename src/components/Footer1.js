@@ -105,7 +105,9 @@ const Footer = () => {
                             <div className="input-group ">
                                 <div className="mb-2">
                                     <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="Enter your name" value={FormData.user_name} name="user_name" onChange={(e) => FormHandeller(e)} />
+                                  
                                 </div>
+                              
                                 <div className="">
                                     <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" cols="20" placeholder='Leave us message' value={FormData.feedback} name="feedback" onChange={(e) => FormHandeller(e)}></textarea>
                                     <button type='submit' className='btn btn-dark mt-1' >Send</button>

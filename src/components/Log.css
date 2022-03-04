@@ -2,9 +2,9 @@
 .login-block {
   /* background: -webkit-linear-gradient(left, #a7a5c7, #020a24); */
 
-  float: left;
+  
   width: 100%;
-  padding: 50px 0;
+  /* padding: 50px 0; */
 } 
 .banner-sec {
 
@@ -22,19 +22,20 @@
 .container {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+  margin-left: 10em;
+  box-shadow: 15px 20px 0px rgba(0.1, 0.1, 0.1, 0.1);
 }
-.carousel-inner {
+/* .carousel-inner {
   border-radius: 0 10px 10px 0;
-}
-.carousel-caption {
+} */
+/* .carousel-caption {
   text-align: left;
   left: 5%;
-}
-.login-sec {
+} */
+/* .login-sec {
   padding: 50px 30px;
   position: relative;
-}
+} */
 .login-sec .copy-text {
   position: absolute;
   width: 80%;
@@ -43,22 +44,22 @@
   text-align: center;
 }
 .login-sec .copy-text i {
-  color: #feb58a;
+  color: #efb533;
 }
 .login-sec .copy-text a {
-  color: #e36262;
+  color: #efb533;
 }
 .login-sec h2 {
   margin-bottom: 30px;
   font-weight: 800;
   font-size: 30px;
-  color: #de6262;
+  color: #efb533;
 }
 .login-sec h2:after {
   content: " ";
   width: 100px;
   height: 5px;
-  background: #feb58a;
+  background: #efb533;
   display: block;
   margin-top: 20px;
   border-radius: 3px;

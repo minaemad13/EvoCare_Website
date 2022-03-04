@@ -29,7 +29,7 @@ export default function Profile() {
     [],
   );
   return (
-    <div className="body1" style={{backgroundColor:"#1C1C1C" , height:"100%"}}>
+    <div className="body1" style={{backgroundColor:"#1C1C1C" , height:"650px" , paddingTop:"50px"}}>
     
       <div className="container emp-profile justify-content-center"  style={{backgroundColor:"#1C1C1C"}}>
         <form>

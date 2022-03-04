@@ -67,17 +67,17 @@ export default function Login({setIsAuthenticated}) {
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+    //console.log(e.target);
     const { name, value } = e.target;
     setFormValues({ ...FormValues, [name]: value });
-    console.log(FormValues);
+    //console.log(FormValues);
 
   };
 
   useEffect(() => {
-    console.log(FormErrors);
+    //console.log(FormErrors);
     if (Object.keys(FormErrors).length === 0 && isSubmit) {
-      console.log(FormValues);
+    //  console.log(FormValues);
     }
   }, [FormErrors]);
   const validate = (values) => {
@@ -99,14 +99,13 @@ export default function Login({setIsAuthenticated}) {
   };
   return (
     <>
-    
-      <section className="login-block">
-        <div className="container mx-5">
-          <div className="row">
+      <section className="login-block ">
+        <div className="container">
+          <div className="row ">
             <div className="col-md-4 login-sec">
-              <h2 className="text-center">Login </h2>
+              <h2 className="text-center" style={{color:"#efb533"}}>Login</h2>
               {Object.keys(FormErrors).length === 0 && isSubmit ? (
-                <div classNameName="ui message success">
+                <div classNameName="ui message success" style={{color:"#efb533"}}>
                   {/*Signed in successfully*/}
                 </div>
               ) : (
@@ -150,9 +149,9 @@ export default function Login({setIsAuthenticated}) {
                       onMouseDown={handleMouseDownPassword}
                     >
                       {FormValues.showPassword ? (
-                        <Visibility />
+                        <Visibility  style={{ color: "#efb533" }}/>
                       ) : (
-                        <VisibilityOff />
+                        <VisibilityOff style={{ color: "#efb533" }} />
                       )}
                     </IconButton>
                     <p id="msg">{FormErrors.password}</p>
@@ -172,17 +171,18 @@ export default function Login({setIsAuthenticated}) {
                     <div className="float-left">
                       <button
                         type="submit"
-                        className="btn btn-login btn-outline-danger"
+                        className="btn btn-login btn-outline-warning"
                       >
                         Login
                       </button>
                     </div>
                   </div>
                 </div>
-                <div classNameName="card-footer">
-                  <div classNameName="d-flex justify-content-center links">
+                <br></br>
+                <div className="card-footer text-center">
+                  <div className="d-flex justify-content-center links" style={{color:"white"}}>
                     Don't have an account?
-                    <Link to="/Register">Register</Link>
+                    <Link to="/Register" style={{color:"#efb533"}}>Register</Link>
                   </div>
                 </div>
               </form>

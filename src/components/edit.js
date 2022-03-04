@@ -56,7 +56,7 @@ export default function Edit() {
       .catch(function (error) {
         console.log(error);
       });
-      history.push('/profile'); 
+      history.push('/edit'); 
 
   };
 
