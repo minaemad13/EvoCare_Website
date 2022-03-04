@@ -18,10 +18,10 @@ const nanoCeramic = () => {
 
 
 
-            <br /><br /><br /><br />
+           
             {/* <Carosel /> */}
             <Carousel service_id={5} />
-            <br /><br /><br />
+           
 
 
 

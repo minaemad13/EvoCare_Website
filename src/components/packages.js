@@ -30,7 +30,7 @@ function Packages(sv_id) {
         <div className="pricing6 py-5">
             <div className="container cont" >
                 <div className=" text-center">
-
+                    <br></br>
                     <h3 className="mb-3 font-bold text-white" style={{ fontWeight:"bold" }} >PACKAGES AVAILABLE</h3>
                     <hr className="hr " />
                     <p className="font mb-5">With EvoCare we offer 100% satisafaction</p>

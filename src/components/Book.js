@@ -7,7 +7,7 @@ import moment from 'moment'
 import { useLocation } from "react-router-dom";
 import jwt from "jwt-decode"
 import { FaCalendarCheck, FaMoneyCheck } from 'react-icons/fa';
-// import Carousel from "./service_carousel";
+ import Carousel from "./service_carousel";
 
 import emailjs from "emailjs-com"
 
@@ -193,7 +193,7 @@ const Book = () => {
   // backgroundImage:`url(${background})` , backgroundrepeat: "no-repeat" 
   return (
     <div style={{ backgroundColor: "#1C1C1C" }}>
-       {/* <Carousel service_id={7} /> */}
+       <Carousel service_id={7} />
       <div className='container' style={{backgroundColor:"#1C1C1C"}}>
         <h1 className='text-center' style={{ color: "#efb533" }}>Date and Time</h1>
         <div className='m-5' style={{ border: "2 #efb533 solid" }}>

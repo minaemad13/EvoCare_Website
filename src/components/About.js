@@ -8,6 +8,7 @@ import { BsCheckLg } from 'react-icons/bs'
 import { FiPhoneCall } from 'react-icons/fi'
 import { GoLocation } from 'react-icons/go'
 import {AiOutlineClockCircle} from 'react-icons/ai'
+import Carousel from "./service_carousel";
 
 // import { Link } from 'react-router-dom'; 
 function About() {
@@ -15,7 +16,7 @@ function About() {
 
 
         <div className="bg py-5 text-center" id='body'>
-
+            <Carousel service_id={7} />
                  
                {/* <about staff /> */}
             <div className="p-5 " id='container'>

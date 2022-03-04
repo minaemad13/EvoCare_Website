@@ -18,10 +18,10 @@ const carCare = () => {
 
 
 
-            <br /><br /><br /><br />
+          
             {/* <Carosel /> */}
             <Carousel service_id={4} />
-            <br /><br /><br />
+         
 
 
 

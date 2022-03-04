@@ -19,10 +19,9 @@ const windowFilm = () => {
 
 
 
-            <br /><br /><br /><br />
-            {/* <Carosel /> */}
+          
             <Carousel service_id={6} />
-            <br /><br /><br />
+          
 
 
 
