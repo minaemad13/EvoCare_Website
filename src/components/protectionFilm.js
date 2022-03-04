@@ -18,10 +18,9 @@ const protectionFilm = () => {
 
 
 
-            <br /><br /><br /><br />
-            {/* <Carosel /> */}
+         
             <Carousel service_id={1} />
-            <br /><br /><br />
+         
 
 
 

@@ -20,7 +20,6 @@ function About() {
 
         <div className="bg py-5 text-center" id='body'>
 
-
             {/* <about staff /> */}
             <div className="py-5  px-2" id='container'>
                 <div className="text-center">

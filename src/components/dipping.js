@@ -17,11 +17,9 @@ const dipping = () => {
         <div className="content">
 
 
-
-            <br /><br /><br /><br />
             {/* <Carosel /> */}
             <Carousel service_id={3} />
-            <br /><br /><br />
+          
 
 
 

@@ -18,10 +18,8 @@ const polish = () => {
 
 
 
-            <br /><br /><br /><br />
-            {/* <Carosel /> */}
             <Carousel service_id={2} />
-            <br /><br /><br />
+      
 
 
 

@@ -42,6 +42,7 @@ export default function Edit() {
       "address":FormValues.address ,
       "birth": FormValues.birth,
       "password":FormValues.password,
+      
     }
     axios.put(`http://127.0.0.1:8000/edit/${user_id}`,data1, {headers:{
      
@@ -55,7 +56,7 @@ export default function Edit() {
       .catch(function (error) {
         console.log(error);
       });
-      history.push('/profile'); 
+      history.push('/edit'); 
 
   };
 
@@ -81,16 +82,16 @@ export default function Edit() {
       /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
     const validphone = /^01[0125][0-9]{8}$/;
 
-    if (!values.firstname) {
-      errors.firstname = "Firstname is required!";
-    } else if (!validname.test(values.firstname)) {
-      errors.firstname =
+    if (!values.First_Name) {
+      errors.First_Name = "Firstname is required!";
+    } else if (!validname.test(values.First_Name)) {
+      errors.First_Name =
         "This is not a valid name!, Name should be charachters only";
     }
-    if (!values.lastname) {
-      errors.lastname = "Lastname is required!";
-    } else if (!validname.test(values.lastname)) {
-      errors.lastname =
+    if (!values.Last_Name) {
+      errors.Last_Name = "Lastname is required!";
+    } else if (!validname.test(values.Last_Name)) {
+      errors.Last_Name =
         "This is not a valid name!, Name should be charachters only";
     }
     if (!values.email) {
@@ -106,11 +107,11 @@ export default function Edit() {
       errors.password =
         "This is not a valid Password format!, Minimum eight characters, at least one letter, one number and one special character ";
     }
-    if (!values.repeatpassword) {
-      errors.repeatpassword = "Please Repeat Your Password ";
-    } else if (values.repeatpassword !== values.password) {
-      errors.repeatpassword = "Passwords Don't Match";
-    }
+    // if (!values.repeatpassword) {
+    //   errors.repeatpassword = "Please Repeat Your Password ";
+    // } else if (values.repeatpassword !== values.password) {
+    //   errors.repeatpassword = "Passwords Don't Match";
+    // }
     if (!values.phone) {
       errors.phone = "Phone Number is required!";
     } else if (!validphone.test(values.phone)) {
@@ -124,13 +125,13 @@ export default function Edit() {
   };
 
   return (
-    <div className="body1">
+    <div className="body1" style={{backgroundColor:"#1C1C1C"}}>
      
-      <div className="container emp-profile">
+      <div className="container emp-profile" style={{backgroundColor:"#1C1C1C"}}>
         <div className="row">
           <div className="col-md-6">
             <div className="profile-head">
-              <h5 className="text-center">{FormValues.First_Name} {FormValues.Last_Name}</h5>
+              <h5 className="text-center" style={{color:"white"}}>{FormValues.First_Name} {FormValues.Last_Name}</h5>
 
               {Object.keys(FormErrors).length === 0 && isSubmit ? (
                 <div classNameName="ui message success">
@@ -170,10 +171,10 @@ export default function Edit() {
                 >
                   <div className="row">
                     <div className="col-md-6">
-                      <label>First Name</label>
+                      <label style={{color:"white"}}>First Name</label>
                     </div>
                     <div className="col-md-6">
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
                         <input
                           type="text"
                           name="First_Name"
@@ -185,17 +186,17 @@ export default function Edit() {
                           onChange={handleChange}
                         />
                       </div>
-                      <p id="msg">{FormErrors.firstname}</p>
+                      <p id="msg">{FormErrors.First_Name}</p>
                     </div>
                   </div>
                   <br />
                  
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Last Name</label>
+                      <label style={{color:"white"}}>Last Name</label>
                     </div>
                     <div className="col-md-6">
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
                         <input
                           name="Last_Name"
                           type="text"
@@ -207,16 +208,16 @@ export default function Edit() {
                           onChange={handleChange}
                         />
                       </div>
-                      <p id="msg">{FormErrors.lastname}</p>
+                      <p id="msg">{FormErrors.Last_Name}</p>
                     </div>
                   </div>
                   <br />
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Birth Date</label>
+                      <label style={{color:"white"}}>Birth Date</label>
                     </div>
                     <div className="col-md-6">
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
                         <input
                           type="text"
                           name="birth"
@@ -235,14 +236,14 @@ export default function Edit() {
 
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Address</label>
+                      <label style={{color:"white"}}>Address</label>
                     </div>
                     <div className="col-md-6">
                       <div className="input-group mb-3">
                         <input
                           type="text"
                           name="address"
-                          class="form-control"
+                          className="form-control"
                           placeholder="Address"
                           aria-label="Address"
                           aria-describedby="basic-addon1"
@@ -257,10 +258,10 @@ export default function Edit() {
 
                   <div className="row">
                     <div className="col-md-6">
-                      <label>New Password</label>
+                      <label style={{color:"white"}}>New Password</label>
                     </div>
                     <div className="col-md-6">
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
                         <input
                           type="password"
                           name="password"
@@ -277,7 +278,7 @@ export default function Edit() {
                   </div>
                   <br />
 
-                  <div className="row">
+                  {/* <div className="row">
                     <div className="col-md-6">
                       <label>Confirm New Password</label>
                     </div>
@@ -297,16 +298,15 @@ export default function Edit() {
                       </div>
                       <p id="msg">{FormErrors.repeatpassword}</p>
                     </div>
-                  </div>
+                  </div> */}
                   <br />
-
                   <div className="row">
                     <div className="col-md-6">
-                      <label>E-Mail</label>
+                      <label style={{color:"white"}}>E-Mail</label>
                     </div>
                     <div className="col-md-6">
                       <div className="col-md-6">
-                        <div class="input-group mb-3">
+                        <div className="input-group mb-3">
                           <input
                             type="email"
                             className="form-control"
@@ -326,11 +326,11 @@ export default function Edit() {
 
                   <div className="row">
                     <div className="col-md-6">
-                      <label>Phone Number</label>
+                      <label style={{color:"white"}}>Phone Number</label>
                     </div>
                     <div className="col-md-6">
                       <div className="col-md-6">
-                        <div class="input-group mb-3">
+                        <div className="input-group mb-3">
                           <input
                             type="tel"
                             className="form-control"
@@ -354,7 +354,7 @@ export default function Edit() {
             <input
               className="btn btn-outline-warning me-md-2"
               type="submit"
-              className="btn btn-login btn-outline-danger"
+              className="btn btn-login btn-outline-warning"
               name="save"
               value="Save"
             />

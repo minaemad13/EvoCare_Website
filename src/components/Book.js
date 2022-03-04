@@ -4,11 +4,10 @@ import '@mobiscroll/react/dist/css/mobiscroll.min.css';
 import { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment'
-import background from "./carbon2.jpg"
 import { useLocation } from "react-router-dom";
 import jwt from "jwt-decode"
 import { FaCalendarCheck, FaMoneyCheck } from 'react-icons/fa';
-import Carousel from "./service_carousel";
+ import Carousel from "./service_carousel";
 
 import emailjs from "emailjs-com"
 
@@ -76,7 +75,7 @@ const Book = () => {
     //console.log(inv.Date_Time)
     myinvalid.push({ start: inv.Date_Time, end: inv.Date_Time })
   });
-console.log(myinvalid)
+//console.log(myinvalid)
   const handleSubmit = (e) => {   // take the form values and selected date and time from calender and send it to backend using post request 
     e.preventDefault();
     emailjs.sendForm("service_fh510hk",
@@ -103,14 +102,12 @@ console.log(myinvalid)
 }
     )
       .then(function (response) {
-        console.log(response);
+      //  console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
      
-     
-    
     axios.get('http://127.0.0.1:8000/invalid/', {headers:{
      
       'Authorization': token
