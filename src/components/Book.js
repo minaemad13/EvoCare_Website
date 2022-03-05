@@ -262,7 +262,7 @@ const Book = () => {
                   </div>
                   <input type="hidden" name="selected" value={selected} />
                   <br></br>
-                  <button type="submit" className="btn btn-outline-warning">Conferm Booking</button>
+                  <button type="submit" className="btn btn-outline-warning">Confirm Booking</button>
                 </form>
               </div>
             </div>

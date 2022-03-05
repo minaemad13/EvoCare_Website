@@ -29,7 +29,7 @@ const Home = () => {
             <a>
           <FloatingWhatsApp
             phoneNumber="+20 1204822114"
-            accountName="Mariam"
+            accountName="EvoCare"
             allowClickAway
             notification
             notificationDelay={60000}

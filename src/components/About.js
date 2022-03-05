@@ -13,13 +13,14 @@ import { AiOutlineCar } from 'react-icons/ai'
 import { MdOutlineWaterDrop } from 'react-icons/md'
 import { RiContactsLine } from 'react-icons/ri'
 import { RiRoadMapLine, RiTeamLine } from 'react-icons/ri'
+import Carousel from "./service_carousel";
 // import { Link } from 'react-router-dom'; 
 function About() {
     return (
 
 
         <div className="bg py-5 text-center" id='body'>
-
+               <Carousel service_id={7} />
             {/* <about staff /> */}
             <div className="py-5  px-2" id='container'>
                 <div className="text-center">
