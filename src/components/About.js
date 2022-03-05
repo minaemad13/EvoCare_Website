@@ -31,13 +31,10 @@ function About() {
                 <div className="margin">
                     <div className="row gx-5 ">
                         <div className="col-lg-4 col-md-6 col-sm-12  col-12 mb-5">
-                        <img src={Staff} alt="intro" className="img-fluid"  style={{  width: "300",height: "300px" }}  />
-
-
-
+                            <img src={Staff} alt="intro" className="img-fluid" style={{ width: "300", height: "300px" }} />
 
                         </div>
-                        <div className="col-lg-8 col-md-6 col-sm-12 col-12" style={{ fontSize: '16px' }}>
+                        <div className="col-lg-8 col-md-6 col-sm-12 col-12" style={{textAlign: 'left'}}>
                             <p>
                                 Have you been searching for technically sound and transparent maintenance and auto repair in EvoCar? The Company of Cars service department offers a complete host of automotive services for all makes and models and we specialise in the repair and maintenance of European models. We have over 40 years of experience in the automotive service industry and by using the latest technology and a first class facility we are well positioned to provide the type of services, maintenance and ongoing attention that these cars demand.
 
