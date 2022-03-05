@@ -50,7 +50,7 @@ export default function Edit() {
     }
    } )
       .then(function (response) {
-        console.log(response);
+       // console.log(response);
 
       })
       .catch(function (error) {
@@ -61,17 +61,17 @@ export default function Edit() {
   };
 
   const handleChange = (e) => {
-    console.log(e.target);
+   // console.log(e.target);
     const { name, value } = e.target;
     setFormValues({ ...FormValues, [name]: value });
-    console.log(FormValues);
+   // console.log(FormValues);
     setFormErrors(validate(FormValues));
   };
 
   useEffect(() => {
-    console.log(FormErrors);
+    //console.log(FormErrors);
     if (Object.keys(FormErrors).length === 0 && isSubmit) {
-      console.log(FormValues);
+     // console.log(FormValues);
     }
   }, [FormErrors]);
   const validate = (values) => {
@@ -138,7 +138,7 @@ export default function Edit() {
                   Updated successfully
                 </div>
               ) : (
-                console.log(JSON.stringify(FormValues, undefined, 2))
+               console.log(JSON.stringify(FormValues, undefined, 2))
               )}
 
               <ul className="nav nav-tabs" id="myTab" role="tablist">

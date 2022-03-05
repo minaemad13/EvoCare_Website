@@ -6,11 +6,13 @@ import axios from "axios";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import FloatingWhatsApp from "react-floating-whatsapp";
 import jwt from 'jwt-decode'
 import {useHistory} from 'react-router-dom';
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
 
-//console.log(localStorage.getItem("email"));
+
 export default function Login({setIsAuthenticated}) {
   const history = useHistory()
   const initialValues = { email: "", password: "" };
@@ -18,8 +20,15 @@ export default function Login({setIsAuthenticated}) {
   const [FormErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [logMessage, setlogMessage] = useState('');
+
+
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
   const handleClickShowPassword = () => {
-    setFormValues({ ...FormValues, showPassword: !FormValues.showPassword });
+    setValues({ ...values, showPassword: !values.showPassword });
   };
 
   const handleMouseDownPassword = (event) => {
@@ -27,8 +36,12 @@ export default function Login({setIsAuthenticated}) {
   };
 
   const handlePasswordChange = (prop) => (event) => {
-    setFormValues({ ...FormValues, [prop]: event.target.value });
+    const { name, value } = event.target;
+    setValues({ ...values, [prop]: event.target.value });
+    setFormValues({ ...FormValues, [name]: value });
   };
+
+
 
   
   const handleSubmit = (e) => {
@@ -111,8 +124,9 @@ export default function Login({setIsAuthenticated}) {
               ) : (
                 console.log(JSON.stringify(FormValues, undefined, 2))
               )}
+              <br></br>
               <form className="login-form" onSubmit={(e) => handleSubmit(e)}>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <div class="form-floating mb-3">
                     <input
                       type="email"
@@ -126,11 +140,58 @@ export default function Login({setIsAuthenticated}) {
                     <p id="msg">{FormErrors.email}</p>
                     <label htmlFor="floatingInput">Email address</label>
                   </div>
-                </div>
+                </div> */}
+                <InputLabel htmlFor="standard-adornment-email" style={{color:"white"}} id="inputs">
+                  Enter your Email
+                </InputLabel>
+                <br></br>
+                <Input
+                  id="inputs"
+                  style={{backgroundColor:"white" , borderRadius:"5px" ,width:"75%", height: "calc(2.5rem + 2px)"}}
+                  name="email"
+                  type="email"
+                  placeholder=" name@example.com"
+                  value={FormValues.email}
+                  onChange={handleChange}
+                />
+                <p id="msg">{FormErrors.email}</p>
+
+                <br />
+                <br />
+                <InputLabel htmlFor="standard-adornment-password" style={{color:"white"}} id="inputs">
+                  Enter your Password
+                </InputLabel>
+                <br></br>
+                <Input
+                  id="inputs"
+                  name="password"
+                  type={values.showPassword ? "text" : "password"}
+                  onChange={handlePasswordChange("password"),handleChange}
+                  style={{backgroundColor:"white" , borderRadius:"5px" ,width:"75%", height: "calc(2.5rem + 2px)"}}
+                  value={FormValues.password}
+                  placeholder="Enter Your Password"
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        id="inputs"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <Visibility />
+                        ) : (
+                          <VisibilityOff />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+                <p id="msg">{FormErrors.password}</p>
+
                 <br />
                 <br />
 
-                <div className="form-group">
+                {/* <div className="form-group">
                   <div class="form-floating mb-3">
                     <input
                       type="password"
@@ -157,7 +218,7 @@ export default function Login({setIsAuthenticated}) {
                     <p id="msg">{FormErrors.password}</p>
                     <label for="floatingInput">Password</label>
                   </div>
-                </div>
+                </div> */}
                 {logMessage && <p className="alert alert-danger">
                   {logMessage}
                 </p>}
@@ -190,7 +251,7 @@ export default function Login({setIsAuthenticated}) {
             </div>
 
             <div className="col-md-8 content  d-none d-md-block">
-            <img src={require('../resources/logo.png')} alt="" class="img-fluid" style={{width:"890px",height:"900px"}}/>
+            <img src={require('../resources/logo.png')} alt="" className="img-fluid" style={{width:"890px",height:"900px"}}/>
             {/* <img src={require("../resources/8bdd1dd1-f7bb-4873-89f0-0182e3885254.jpeg")} alt="intro" className="img-fluid"  style={{width:"850px",height:"600px"}}/> */}
               
               <div

@@ -31,7 +31,7 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
       axios
       .get(`http://127.0.0.1:8000/getuser/${user_id}`)
       .then(function (response) {
-        console.log(response.data.First_Name)
+        //console.log(response.data.First_Name)
         setName(response.data.First_Name)
       })
       .catch(function (error) {
@@ -59,9 +59,9 @@ const NAvpublic = ({isAuthenticated,setIsAuthenticated}) => {
     <div className='fluid-container'>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark static-top">
         <div className="container-fluid">
-          <Link class="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/">
 
-            <img src={require('../resources/logo.png')} alt="" class="d-inline-block img-responsive" />
+            <img src={require('../resources/logo.png')} alt="" className="d-inline-block img-responsive" />
             <span className='fw-bold'>Evo</span><span className='fw-bold' style={{ color: '#efb533' }}>Care</span>
 
           </Link>

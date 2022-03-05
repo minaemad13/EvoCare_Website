@@ -23,7 +23,7 @@ const Footer = () => {
             "feedback": FormData['feedback'],
 
         }).then(function (response) {
-            console.log(response);
+           // console.log(response);
         })
         .catch(function (error) {
                 console.log(error);
@@ -94,9 +94,9 @@ const Footer = () => {
                             <li ><Link to="/" className='anch'>Home</Link></li>
                             <li ><Link to="/about" className='anch'>About</Link></li>
                         </ul>
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><Link to ={{pathname:'https://www.facebook.com/EVO.CarsCare/'}} target="_blank"><FaFacebookSquare className='icon2' /></Link> </li>
-                            <li class="list-inline-item"><Link to={{ pathname: "https://www.instagram.com/evocare.egy/" }} target="_blank" > <BsInstagram className='icon2' /></Link> </li>
+                        <ul className="list-inline">
+                            <li className="list-inline-item"><Link to ={{pathname:'https://www.facebook.com/EVO.CarsCare/'}} target="_blank"><FaFacebookSquare className='icon2' /></Link> </li>
+                            <li className="list-inline-item"><Link to={{ pathname: "https://www.instagram.com/evocare.egy/" }} target="_blank" > <BsInstagram className='icon2' /></Link> </li>
                         </ul>
                     </div>
                     <div className="col-lg-4 col-md-8 col-sm-8 col-8 ">

@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import ScrollToTop from "./ScrollToTop";
 import React from "react";
 const Card = ({ data }) => {
-  console.log(data)
+  //console.log(data)
   return (<>
 
     <div className="col-lg-4 col-md-6 col-sm-12 ">
@@ -13,7 +13,7 @@ const Card = ({ data }) => {
         {/* <div className="middle" id ="show">
 <button className="btn btn-warning rounded-pill "> Show More</button>
 </div> */}
-        <div class="card-body bg " >
+        <div className="card-body bg " >
           <h5 className="mb-3 fw-bold">{data.title}</h5>
 
           <div>

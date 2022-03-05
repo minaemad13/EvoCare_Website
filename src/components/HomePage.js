@@ -11,13 +11,13 @@ const HomePage = () => {
         const values = QueryString.parse(location.search);
 
        if (values.success) {
-          console.log('Order placed! You will receive an email confirmation.');
+         // console.log('Order placed! You will receive an email confirmation.');
         }
 
        if (values.canceled) {
-          console.log(
-            'Order canceled -- continue to shop around and checkout when youre ready.'
-          );
+         // console.log(
+          //  'Order canceled -- continue to shop around and checkout when youre ready.'
+         // );
         }
       }, []);
     return (

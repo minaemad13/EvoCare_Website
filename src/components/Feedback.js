@@ -20,8 +20,8 @@ const Feedback = () => {
           
       }, [])
 
-    console.log(feed2)
-    console.log()
+   // console.log(feed2)
+   // console.log()
 
 
 
@@ -30,8 +30,8 @@ const Feedback = () => {
 
     const movenext = (feed) => {
         let k = Data.indexOf(feed)
-        console.log(k)
-        console.log(Data.length)
+       // console.log(k)
+       // console.log(Data.length)
         if (k < Data.length - 1) {
             k++
         }

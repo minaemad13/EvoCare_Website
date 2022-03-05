@@ -36,6 +36,9 @@
   padding: 50px 30px;
   position: relative;
 } */
+#inputs {
+  color: "white";
+}
 .login-sec .copy-text {
   position: absolute;
   width: 80%;

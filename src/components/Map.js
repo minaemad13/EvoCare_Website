@@ -6,13 +6,13 @@ const Map = () => {
     
     <div className="">
 
-  <button class="map " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+  <button className="map " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
     <FiMapPin/><br/>
     <span>show map</span>
   </button>
 </div>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
+<div className="collapse" id="collapseExample">
+  <div className="card card-body">
     {/* Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger. */}
   <Mapview/>
   </div>
