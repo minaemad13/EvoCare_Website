@@ -1,8 +1,34 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overview
 
-## Available Scripts
+This is the client side (Frontend) for a car showroom displays the services offered by the showroom, and the owner of the showroom controls everything, such as what services are displayed and control the display of images for each service and control for all data shows in the site for all services and all packages. Users can also book an appointment to do a specific service and pay via their visa.
+
+# Dependencies
+
+- nodejs
+- react
+- axios
+- cors
+- google-map-react
+- jwt-decode
+- react-dom
+- react-router-dom
+
+# To Use
+
+To clone and run this repository you'll need Git and Node.js (which comes with npm) installed on your computer. From your command line
+
+```bash
+# Clone this repository
+git clone https://github.com/CreativeAxisEG/EvoCare_Website.git
+# Go into the repository
+cd EvoCare_Website
+# Install dependencies
+npm install
+# Run the app
+npm start
+```
+
 
 In the project directory, you can run:
 
@@ -29,42 +55,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+# GUI OUTPUT
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![c1merge](https://user-images.githubusercontent.com/120844290/212483459-38109622-7de1-4dfa-8b25-ef163b668e76.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![c2merge](https://user-images.githubusercontent.com/120844290/212483382-b517b17b-395b-4f08-8624-5b167d8bd110.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Server Side 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+you can see the server side (Backend) wich built using Python Django from here
+https://github.com/minaemad13/EvoCare_Website_api
